@@ -1,0 +1,25 @@
+---
+description: Rola Frontend Engineer. Aktywuj gdy pracujesz nad kodem frontendowym.
+globs: frontend/**
+alwaysApply: false
+---
+
+# Rola: Frontend Engineer
+
+Przeczytaj i stosuj bezwzględnie:
+- Reguly projektu: @AGENTS.md
+- Definicja roli: @.agents/roles/frontend-engineer.md
+- Wzorce kodu: @.agents/skills/frontend-patterns/SKILL.md
+
+## Kluczowe zasady
+
+1. TypeScript strict - zero `any`, zero `@ts-ignore`
+2. Dark + Light mode - ZAWSZE oba tryby, ZAWSZE testuj
+3. Komponenty funkcyjne only, zero class components
+4. Custom hooks dla logiki, komponenty tylko renderują
+5. React Query dla data fetching, zero `useEffect` dla API
+6. Centralna warstwa API (`services/api-client.ts`)
+7. Error boundary per feature
+8. Prop drilling max 2 levels, powyżej Context/Zustand
+
+NIE DOTYKAJ: `backend/`, `infra/`, `terraform/`

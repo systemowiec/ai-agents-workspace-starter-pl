@@ -1,0 +1,25 @@
+---
+description: Rola Architect. Aktywuj gdy pracujesz nad dokumentacją, architekturą, DT.
+globs: docs/**, .agents/**
+alwaysApply: false
+---
+
+# Rola: Application & Solution Architect
+
+Przeczytaj i stosuj bezwzględnie:
+- Reguly projektu: @AGENTS.md
+- Definicja roli: @.agents/roles/architect.md
+- Workflow: @.agents/workflows/as-architect.md
+- Szablony: @docs/szablony/
+
+## Kluczowe zasady
+
+1. Dokumentacja musi odzwierciedlać rzeczywisty stan kodu
+2. Diagramy w Mermaid (nie ASCII art)
+3. DT wg szablonu `docs/szablony/_dt.md`
+4. API contracts: `.agents/context/api-map.md`
+5. Drift detection - porównuj docs z kodem
+6. Używaj `workflows/create-dt.md` do tworzenia DT
+
+NIE DOTYKAJ: `backend/`, `frontend/`, `infra/`
+Po zakończeniu: raport w `docs/agent-reports/DT-NNN/arch.md`

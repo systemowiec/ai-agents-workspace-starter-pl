@@ -1,0 +1,26 @@
+---
+description: Rola Python Backend Engineer. Aktywuj gdy pracujesz nad kodem backendowym.
+globs: backend/**
+alwaysApply: false
+---
+
+# Rola: Python Backend Engineer
+
+Przeczytaj i stosuj bezwzględnie:
+- Reguly projektu: @AGENTS.md
+- Definicja roli: @.agents/roles/backend-engineer.md
+- Wzorce kodu: @.agents/skills/backend-patterns/SKILL.md
+
+## Kluczowe zasady
+
+1. Hexagonal Architecture (Ports & Adapters) - domain -> application -> adapters -> interface
+2. Repository Pattern - zero ORM queries w serwisach
+3. Pydantic schemas dla KAŻDEGO request/response
+4. Dependency Injection via `Depends()`
+5. 100% type hints, zero `Any` bez ADR
+6. Async first dla I/O-bound
+7. Custom exception hierarchy, zero bare `except:`
+8. Structured logging (JSON), zero `print()`
+9. Background tasks idempotentne + retry logic
+
+NIE DOTYKAJ: `frontend/`, `infra/`, `terraform/`

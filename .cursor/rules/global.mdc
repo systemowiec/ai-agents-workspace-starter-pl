@@ -1,0 +1,56 @@
+---
+description: Globalne reguły projektu - Docker First, architektura, formatowanie, git, Cardinal Rules
+alwaysApply: true
+---
+
+# Reguły globalne
+
+> Przeczytaj `AGENTS.md` - źródło prawdy dla WSZYSTKICH reguł projektu.
+
+## Docker First - BEZWZGLĘDNIE
+
+- NIGDY nie uruchamiaj komend lokalnie. Tylko `make` / `docker compose`.
+- Zakazane: `python3`, `pip`, `npm`, `npx`, `pytest`, `ruff`, `mypy`, `alembic`
+- Dozwolone: `make test`, `make lint`, `make up`, `make shell`, `make build`
+
+## 4 Cardinal Rules
+
+1. **Quality-First** - najlepsze rozwiązanie, zawsze. Proaktywne usprawnianie.
+2. **Documentation First** - docs PRZED kodem. Dokumentacja = source of truth.
+3. **Docker First** - NIGDY lokalnie. Tylko make / docker compose.
+4. **Plan -> Review -> Implementation** - CZEKAJ na akceptację.
+
+## Architektura
+
+- Hexagonal Architecture (Ports & Adapters)
+- Kolejność: domain -> application -> adapters -> interface
+- Pełne szczegóły w `AGENTS.md` sekcja 5
+
+## Formatowanie
+
+- NIGDY nie używaj typograficznych myślników (em-dash, en-dash). Tylko `-` (ASCII 45)
+- Conventional commits: `feat:`, `fix:`, `refactor:`, `test:`, `docs:`, `infra:`, `ci:`
+- Branch: `feature/DT-NNN-opis`, `fix/DT-NNN-opis`
+
+## Workflow
+
+> KAŻDE zadanie MUSI przejść przez `.agents/workflows/dt-development.md`
+
+1. Analiza problemu
+2. PLAN (w punktach)
+3. Oczekiwanie na akceptację
+4. Dokumentacja (PRZED kodem!)
+5. Implementacja
+6. Weryfikacja (`.agents/workflows/post-impl-verify.md`)
+7. Summary + diff zmian
+
+## Zasoby agenta
+
+- `AGENTS.md` - pełne reguły (PRZECZYTAJ NAJPIERW)
+- `.agents/roles/` - definicje ról (analyst, architect, backend-engineer, frontend-engineer, platform-engineer, e2e-engineer, quality-gate)
+- `.agents/skills/` - wzorce kodu i procedury
+- `.agents/workflows/` - procesy (dt-development, post-impl-verify, create-dt, complete-dt)
+- `.agents/rules/` - reguły globalne i git workflow
+- `.agents/learnings/` - pułapki i nietypowe zachowania
+- `docs/szablony/` - szablony DT, raportów, modułów
+- `docs/agent-reports/` - raporty między agentami (impl, review, arch)

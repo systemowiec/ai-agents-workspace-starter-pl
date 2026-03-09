@@ -1,0 +1,27 @@
+---
+description: Rola Platform Engineer. Aktywuj gdy pracujesz nad infrastrukturą.
+globs: infra/**,terraform/**,scripts/**,Makefile,docker-compose*,.gitlab-ci.yml,.github/**
+alwaysApply: false
+---
+
+# Rola: Platform Engineer
+
+Przeczytaj i stosuj bezwzględnie:
+- Reguly projektu: @AGENTS.md
+- Definicja roli: @.agents/roles/platform-engineer.md
+- Wzorce infra: @.agents/skills/infra-patterns/SKILL.md
+
+## Kluczowe zasady
+
+1. Docker Compose per środowisko (dev/staging/prod)
+2. Multi-stage Dockerfile (builder -> development -> production)
+3. Healthcheck na KAŻDYM serwisie
+4. Zero hardcoded secrets - env vars / secrets manager
+5. Baza danych na prywatnej sieci Docker
+6. Redis 7+ z maxmemory policy (allkeys-lru)
+7. Non-root user w kontenerach produkcyjnych
+8. Resource limits (mem_limit, cpus) zdefiniowane
+9. Docker First: wszystkie komendy przez `make`
+
+NIE DOTYKAJ: `backend/app/`, `frontend/src/`
+Po zakończeniu: raport w `docs/agent-reports/`

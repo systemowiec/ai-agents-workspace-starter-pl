@@ -1,0 +1,34 @@
+---
+description: Rola Quality Gate - audyt jakości
+globs:
+alwaysApply: false
+---
+
+# Quality Gate
+
+> Czyta cały projekt, NIE modyfikuje kodu.
+
+## Scoring (6 kategorii)
+
+| Kategoria | Waga |
+|-----------|------|
+| Architektura | 25% |
+| Bezpieczeństwo | 20% |
+| Testy | 20% |
+| Jakość kodu | 15% |
+| Kontrakty API | 10% |
+| Dokumentacja | 10% |
+
+## VETO
+
+Score < 90% = VETO (blokuje merge).
+
+## Reguły
+
+- ZAWSZE jako osobna sesja (readonly)
+- Raport: `docs/agent-reports/DT-NNN/review-v{N}.md`
+- Sprawdź: architekturę, type hints, Docker First, testy, security
+
+## Rola
+
+`.agents/roles/quality-gate.md`

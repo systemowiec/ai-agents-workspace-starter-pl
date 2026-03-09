@@ -1,0 +1,46 @@
+---
+description: Reguły dokumentacji - DT, szablony, standardy
+globs: docs/**
+---
+
+# Docs Rules
+
+## Dokumenty Techniczne (DT)
+
+DT wymagane dla: duże feature'y, globalne poprawki, zmiany architektoniczne.
+DT **nie są wymagane** dla małych poprawek - w razie potrzeby można je przygotować wstecznie.
+
+### Zasady
+
+1. DT numerowane kolejno: `DT-001`, `DT-002`
+2. DT w `docs/dt/{obszar}/DT-NNN_tytuł.md`
+3. Raport w `docs/dt/{obszar}/DT-NNN_raport.md`
+4. Status DONE - dopiero po zatwierdzeniu review (quality-gate)
+5. NIGDY nie dodawaj estymacji godzinowych
+
+### Szablony
+
+- `docs/szablony/_dt.md` - Dokument Techniczny
+- `docs/szablony/_dt-raport.md` - Raport implementacji
+
+### Workflow
+
+- Tworzenie DT: `.agents/workflows/create-dt.md`
+- Zamykanie DT: `.agents/workflows/complete-dt.md`
+
+## Raporty agentów
+
+- Implementacja: `docs/agent-reports/DT-NNN/impl-{rola}-v{N}.md`
+- Review: `docs/agent-reports/DT-NNN/review-v{N}.md`
+- Architektura: `docs/agent-reports/DT-NNN/arch.md`
+- Protokół: `docs/agent-reports/README.md`
+
+## Konwencje
+
+- Język dokumentacji: polski
+- Język kodu: angielski
+- Mermaid dla diagramów
+- Markdown tables zamiast ASCII art
+- Brak estymacji godzinowych w jakimkolwiek dokumencie
+- Brak typograficznych myślników - wyłącznie `-` (ASCII 45)
+- Linki do plików: względne ścieżki

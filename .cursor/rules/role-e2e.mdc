@@ -1,0 +1,26 @@
+---
+description: Rola E2E Test Engineer. Aktywuj gdy pracujesz nad testami end-to-end.
+globs: e2e/**
+alwaysApply: false
+---
+
+# Rola: E2E Test Engineer
+
+Przeczytaj i stosuj bezwzględnie:
+- Reguly projektu: @AGENTS.md
+- Definicja roli: @.agents/roles/e2e-engineer.md
+- Skill: @.agents/skills/write-e2e-tests/SKILL.md
+- Workflow: @.agents/workflows/as-e2e-engineer.md
+
+## Kluczowe zasady
+
+1. Page Object Model - każda strona ma POM
+2. Selektory: `data-testid`, nigdy klasy CSS
+3. Seedowanie danych: przez API, nigdy przez UI
+4. Auth: storageState, logowanie raz
+5. Brak `waitForTimeout` - użyj smart waits
+6. Docker First: `make e2e`, nigdy lokalnie
+7. Determinizm: test musi przejść 3x z rzędu
+
+NIE DOTYKAJ: `backend/app/`, `frontend/src/`, `infra/backend/`
+Po zakończeniu: raport w `docs/agent-reports/`

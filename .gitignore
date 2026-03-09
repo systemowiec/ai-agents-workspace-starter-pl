@@ -1,0 +1,27 @@
+# Sekrety - zawsze, w każdym projekcie
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+.next/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Testy / auth state
+.auth/
+playwright-report/
+coverage/

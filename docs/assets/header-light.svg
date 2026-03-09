@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 130" fill="none">
+  <text x="400" y="35" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="14" fill="#afb8c1">┌─────────────────────────────────────────────────┐</text>
+  <text x="400" y="65" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="32" font-weight="700" fill="#1f2328">AI Agents Workspace</text>
+  <text x="400" y="95" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="22" fill="#0969da">S T A R T E R</text>
+  <text x="400" y="120" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="14" fill="#afb8c1">└──────────────────── v0.1.0 ─────────────────────┘</text>
+</svg>

@@ -1,0 +1,21 @@
+# .codex/config.toml
+# Konfiguracja Codex CLI dla tego projektu
+#
+# Codex CLI szuka AGENTS.md w następującej kolejności:
+# 1. ~/.codex/AGENTS.md (preferencje użytkownika)
+# 2. AGENTS.md w root projektu (reguły projektowe)
+# 3. AGENTS.md w bieżącym katalogu (reguły lokalne)
+#
+# Uwaga: ten plik jest ignorowany przez Codex jeśli projekt nie jest trusted.
+# Aby oznaczyć projekt jako zaufany, uruchom: codex --trust
+
+[project]
+# Maksymalna wielkość pliku AGENTS.md wczytywanego do kontekstu (bajty)
+project_doc_max_bytes = 65536
+
+# Fallback: jeśli AGENTS.md nie istnieje w danym katalogu,
+# Codex szuka tych plików w tej kolejności
+project_doc_fallback_filenames = ["CLAUDE.md", "README.md"]
+
+[tools]
+web_search = false
