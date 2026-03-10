@@ -93,7 +93,7 @@ Zamiast budować konfiguracje dla każdego narzędzia od zera, dostajesz:
 - **Dokumentacja jako kontrakt** - szablony w `docs/szablony/` wymuszają sposób w jaki
   agent raportuje, dokumentuje decyzje i prowadzi audit trail
 - **Role z ograniczeniami** - każdy agent wie co MOŻE i czego NIE MOŻE dotykać
-- **Folder-based Skills** - format Anthropic, łatwe do rozszerzania i współdzielenia
+- **Skille folder-based** - format Anthropic, łatwe do rozszerzania i współdzielenia
 - **Quality Gate** - audytor z VETO blokującym merge przy niskiej jakości
 
 ## Szybki start
@@ -145,7 +145,7 @@ ai-agents-workspace-starter/
 │
 ├── .claude/                    # Konfiguracja Claude Code
 │   ├── agents/                 # 7 sub-agentów (thin wrappery do ról)
-│   ├── commands/               # 3 slash commands (implement, audit, review)
+│   ├── commands/               # 3 slash komendy (implement, audit, review)
 │   └── settings.json           # Uprawnienia (Docker-first enforcement)
 │
 ├── .cursor/rules/              # 9 reguł Cursor (.mdc z globami)
@@ -162,7 +162,7 @@ ai-agents-workspace-starter/
 │   └── szablony/               # Szablony (DT, raport, audyt)
 │
 ├── AGENTS.md                   # Globalny punkt wejścia - czytaj jako pierwszy
-└── CLAUDE.md                   # Entry point Claude Code
+└── CLAUDE.md                   # Punkt wejścia Claude Code
 ```
 
 ## Jak to działa - hierarchia kontekstu agenta
@@ -269,7 +269,7 @@ cp -r .agents/skills/_template .agents/skills/mój-nowy-skill
 
 ## 4 Kardynalne Zasady
 
-1. **Quality-First** - najlepsze możliwe rozwiązanie. Zawsze. Zero shortcutów.
+1. **Quality-First** - najlepsze możliwe rozwiązanie. Zawsze. Zero skrótów.
 2. **Documentation First** - zaktualizuj dokumentację PRZED pisaniem kodu.
 3. **Docker First** - nigdy nie uruchamiaj Python/npm/pip lokalnie. Zawsze Docker/Make.
 4. **Plan -> Review -> Implementation** - zawsze w tej kolejności. Czekaj na akceptację.
@@ -333,7 +333,7 @@ Ten starter domyślnie zakłada stack:
 | Nowy workflow | `.agents/workflows/mój-workflow.md` | YAML frontmatter + kroki |
 | Cursor rule | `.cursor/rules/moja-reguła.mdc` | Użyj `globs:` do aktywacji |
 | Claude command | `.claude/commands/moja-cmd.md` | YAML frontmatter + instrukcje |
-| Claude agent | `.claude/agents/mój-agent.md` | Thin wrapper do pliku roli |
+| Agent Claude | `.claude/agents/mój-agent.md` | Cienki wrapper do pliku roli |
 
 ---
 
@@ -349,7 +349,7 @@ Agenci są skonfigurowani tak, aby używać tych szablonów zawsze gdy tworzą d
 
 ---
 
-## Contributing
+## Współtworzenie
 
 Chcesz rozwijać ten projekt? Przeczytaj [CONTRIBUTING.md](CONTRIBUTING.md).
 

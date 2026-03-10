@@ -213,7 +213,7 @@ Projekt używa systemu specjalizowanych agentów. Pełne definicje w `.agents/ro
 | **frontend-engineer** | Senior Frontend Engineer. React, TypeScript. | `frontend/`, `docs/agent-reports/` |
 | **platform-engineer** | Platform & Infra Engineer. Docker, CI/CD, cloud, monitoring. | `infra/`, `scripts/`, `Makefile` |
 | **e2e-engineer** | E2E Test Engineer. Playwright, POM, Docker. | `e2e/`, `infra/e2e/`, `docs/agent-reports/` |
-| **quality-gate** | Enterprise Code Auditor. Punktacja w 6 kategoriach: PASS >= 95%, CONDITIONAL 90-94%, FAIL < 90% (VETO). Zawsze osobna sesja. | Cały projekt (read), `docs/agent-reports/` (write) |
+| **quality-gate** | Audytor jakości kodu. Punktacja w 6 kategoriach: PASS >= 95%, CONDITIONAL 90-94%, FAIL < 90% (VETO). Zawsze osobna sesja. | Cały projekt (read), `docs/agent-reports/` (write) |
 
 ## 13. Wszystkie zasoby agenta (cross-IDE)
 
@@ -224,9 +224,9 @@ Projekt używa systemu specjalizowanych agentów. Pełne definicje w `.agents/ro
 - `.agents/roles/frontend-engineer.md` - Senior Frontend Engineer
 - `.agents/roles/platform-engineer.md` - Platform & Infra Engineer
 - `.agents/roles/e2e-engineer.md` - E2E Test Engineer
-- `.agents/roles/quality-gate.md` - Enterprise Code Auditor
+- `.agents/roles/quality-gate.md` - audytor jakości kodu
 
-### Skills (folder-based, format Anthropic SKILL.md)
+### Skille (folder-based, format Anthropic SKILL.md)
 
 - `.agents/skills/backend-patterns/SKILL.md` - FastAPI, Repository, Service, exceptions
 - `.agents/skills/database-patterns/SKILL.md` - SQLAlchemy async, repo pattern, Alembic
@@ -251,7 +251,7 @@ Projekt używa systemu specjalizowanych agentów. Pełne definicje w `.agents/ro
 - `.agents/learnings/gotchas.md` - pułapki i nietypowe zachowania
 - `.agents/learnings/README.md` - format i zasady dodawania wpisów
 
-### Workflows (procesy)
+### Workflowy (procesy)
 - `.agents/workflows/as-analyst.md` - przełącz na Analyst
 - `.agents/workflows/as-architect.md` - przełącz na Architect
 - `.agents/workflows/as-backend-engineer.md` - przełącz na Backend Engineer
@@ -314,13 +314,13 @@ Pełna procedura: `.agents/skills/self-improvement/SKILL.md`
 
 **Zasady:**
 - NIGDY nie dodawaj automatycznie - zawsze pytaj użytkownika
-- Wpisy są wersjonowane w Git i podlegają code review
+- Wpisy są wersjonowane w Git i podlegają przeglądowi kodu
 - Format wpisu: tytuł, kontekst, problem, rozwiązanie, data
 
 ## 15. Mantra
 
 > **DOCS -> PLAN -> REVIEW -> IMPLEMENTATION -> VERIFY**
 > Docker > lokalnie
-> Quality-First > shortcuts
+> Quality-First > skróty
 > Dyscyplina > chaos
 > Kod > eseje
