@@ -21,6 +21,7 @@ Każdy teammate MUSI przestrzegać granic plików. Edycja poza swoim zakresem = 
 | platform-engineer | infra/, terraform/, scripts/, Makefile, docs/agent-reports/ | backend/app/, frontend/src/ |
 | frontend-engineer | frontend/, docs/agent-reports/ | backend/, infra/, terraform/ |
 | e2e-engineer | e2e/, infra/e2e/, docs/agent-reports/ | backend/app/, frontend/src/ |
+| ai-specialist | backend/ (tylko moduły AI/LLM), docs/agent-reports/ | frontend/, infra/, terraform/, Makefile, niezwiązana logika backendu |
 
 Dwóch teammate'ów nie może jednocześnie edytować tego samego pliku.
 Jeśli musisz zmienić plik innego teammate'a - wyślij mu wiadomość.
@@ -38,6 +39,7 @@ Definicje subagentów w `.claude/agents/`. Każdy odwołuje się do pełnej roli
 | platform-engineer | `.agents/roles/platform-engineer.md` | Read, Write, Edit, Bash, Glob, Grep |
 | frontend-engineer | `.agents/roles/frontend-engineer.md` | Read, Write, Edit, Bash, Glob, Grep |
 | e2e-engineer | `.agents/roles/e2e-engineer.md` | Read, Write, Edit, Bash, Glob, Grep |
+| ai-specialist | `.agents/roles/ai-specialist.md` | Read, Write, Edit, Bash, Glob, Grep |
 
 ## Komendy
 
@@ -58,24 +60,27 @@ Skille w `.agents/skills/<nazwa>/SKILL.md` (folder-based, format Anthropic).
 
 | Typ raportu | Plik | Kto zapisuje | Kto czyta |
 |---|---|---|---|
-| Implementacja | `docs/agent-reports/DT-NNN/impl-{rola}-v1.md` | backend-engineer | quality-gate, architect |
-| Review | `docs/agent-reports/DT-NNN/review-v1.md` | quality-gate | backend-engineer |
-| Architektura | `docs/agent-reports/DT-NNN/arch.md` | architect | backend-engineer |
+| Implementacja | `docs/agent-reports/DT-NNN/impl-{rola}-v1.md` | rola implementacyjna | quality-gate, architect |
+| Review | `docs/agent-reports/DT-NNN/review-v1.md` | quality-gate | rola implementacyjna |
+| Architektura | `docs/agent-reports/DT-NNN/arch.md` | architect | role implementacyjne |
 
 ### Wiadomości (Agent Teams)
 
 WYŚLIJ wiadomość gdy:
 - Skończyłeś swój task -> napisz do następnej osoby w kolejce
 - Zmienił się API contract -> napisz do `frontend-engineer`
+- Zmiana dotyczy promptów, integracji modeli, tool calling lub structured output -> napisz do `ai-specialist`
 - Znalazłeś blocker -> napisz do leada
 
 NIE wysyłaj broadcastu bez potrzeby - każda wiadomość zużywa kontekst.
 Ważne decyzje zapisuj w plikach (przetrwają compaction).
+Przy przekazaniu zadania przygotuj gotowy prompt delegacyjny do skopiowania.
 
 ### Cykl implementacyjny
 
 ```
 Architect: analiza -> arch-*.md -> wiadomość do `backend-engineer` z wytycznymi
+AI Specialist: analiza AI/LLM -> impl-ai-specialist-*.md -> wiadomość do właściwej roli z promptem delegacyjnym
 Engineer: implementacja -> make lint && make test -> impl-*.md -> wiadomość do `quality-gate`
 Quality Gate: review -> review-*.md
   PASS/CONDITIONAL -> wiadomość do leada "DT done"

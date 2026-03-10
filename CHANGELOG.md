@@ -5,6 +5,11 @@ Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/).
 
 ## [0.1.2] - 2026-03-10
 
+### Dodano
+
+- Rolę `AI Specialist` wraz z workflowem `as-ai-specialist`, wrapperem Claude i regułą Cursor
+- Mechanizm gotowego promptu delegacyjnego przy przekazywaniu pracy między rolami
+
 ### Poprawiono
 
 - Zaktualizowano `README.md`, aby odzwierciedlał dwa osobne repozytoria (`-pl` i `en`) oraz wspólną wersję `0.1.2`
@@ -12,6 +17,7 @@ Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/).
 - Przebudowano `CONTRIBUTING.md`, doprecyzowując zasady współpracy, synchronizacji PL/EN i standardy pull requestów
 - Doprecyzowano angielskie tłumaczenia w wybranych plikach EN, aby były wierniejsze semantycznie i bardziej naturalne językowo
 - Poprawiono literówkę w przykładzie kodu w `database-migration/SKILL.md`
+- Zsynchronizowano `README.md`, `AGENTS.md` i `CLAUDE.md` z nową rolą oraz zaktualizowanymi licznikami zasobów
 
 ## [0.1.1] - 2026-03-09
 

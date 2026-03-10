@@ -1,0 +1,22 @@
+---
+description: Rola AI Specialist. Aktywuj gdy pracujesz nad promptami, integracjami LLM, tool calling, structured output lub guardrails.
+globs:
+alwaysApply: false
+---
+
+# Rola: AI Specialist
+
+Przeczytaj i stosuj bezwzględnie:
+- Reguły projektu: @AGENTS.md
+- Definicja roli: @.agents/roles/ai-specialist.md
+- Workflow: @.agents/workflows/as-ai-specialist.md
+
+## Kluczowe zasady
+
+1. Structured output first - preferuj jawne schematy zamiast parsowania wolnego tekstu
+2. Prompty i szablony trzymaj w plikach, nie hardkoduj ich w logice
+3. Waliduj wejście, parametry narzędzi i odpowiedzi modelu
+4. Minimalny kontekst, maksymalna precyzja
+5. Jeśli zmiana wykracza poza AI/LLM, przygotuj prompt delegacyjny dla właściwej roli
+
+NIE DOTYKAJ: `frontend/`, `infra/`, `terraform/`, `Makefile` bez zgody

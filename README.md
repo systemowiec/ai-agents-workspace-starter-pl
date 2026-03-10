@@ -19,7 +19,7 @@
 <img src="https://img.shields.io/badge/Codex_CLI-✓-green?style=flat-square" alt="Codex">
 </p>
 
-<p><sub>7 ról · 13 skilli · 7 workflowów · Quality Gate z VETO</sub></p>
+<p><sub>8 ról · 13 skilli · 7 workflowów · Quality Gate z VETO</sub></p>
 
 </div>
 
@@ -78,7 +78,7 @@ Zamiast budować konfiguracje dla każdego narzędzia od zera, dostajesz:
 - **Gotowe katalogi konfiguracyjne** dla każdego agenta z punktami wejścia
 - **Hierarchie instrukcji**: globalny AGENTS.md -> katalog -> plik
 - **Szablony dokumentacji technicznej** gotowe do użycia przez agentów
-- **7 wyspecjalizowanych ról** z zakresem odpowiedzialności i ograniczeniami
+- **8 wyspecjalizowanych ról** z zakresem odpowiedzialności i ograniczeniami
 - **13 skilli wielokrotnego użytku** w formacie Anthropic SKILL.md
 - **7 workflowów** pokrywających cały cykl życia zadania
 - **Quality Gate** ze scoringiem w 6 kategoriach i mechanizmem VETO
@@ -93,6 +93,8 @@ Zamiast budować konfiguracje dla każdego narzędzia od zera, dostajesz:
 - **Dokumentacja jako kontrakt** - szablony w `docs/szablony/` wymuszają sposób w jaki
   agent raportuje, dokumentuje decyzje i prowadzi audit trail
 - **Role z ograniczeniami** - każdy agent wie co MOŻE i czego NIE MOŻE dotykać
+- **Przekazywanie pracy między rolami** - agent może przygotować gotowy prompt delegacyjny
+  do skopiowania do nowej sesji
 - **Skille folder-based** - format Anthropic, łatwe do rozszerzania i współdzielenia
 - **Quality Gate** - audytor z VETO blokującym merge przy niskiej jakości
 
@@ -138,17 +140,17 @@ ai-agents-workspace-starter/
 ├── .agents/                    # Konfiguracja agentów (Single Source of Truth)
 │   ├── context/                # Kontekst projektu (stack, API map, modele)
 │   ├── learnings/              # Odkryte gotchas i wzorce
-│   ├── roles/                  # 7 definicji ról
+│   ├── roles/                  # 8 definicji ról
 │   ├── rules/                  # Reguły globalne + Git workflow
 │   ├── skills/                 # 13 skilli (folder-based, format Anthropic)
-│   └── workflows/              # 7 workflowów + 7 przełączników ról
+│   └── workflows/              # 7 workflowów + 8 przełączników ról
 │
 ├── .claude/                    # Konfiguracja Claude Code
-│   ├── agents/                 # 7 sub-agentów (thin wrappery do ról)
+│   ├── agents/                 # 8 sub-agentów (thin wrappery do ról)
 │   ├── commands/               # 3 slash komendy (implement, audit, review)
 │   └── settings.json           # Uprawnienia (Docker-first enforcement)
 │
-├── .cursor/rules/              # 9 reguł Cursor (.mdc z globami)
+├── .cursor/rules/              # 10 reguł Cursor (.mdc z globami)
 ├── .codex/config.toml          # Konfiguracja Codex CLI
 │
 ├── backend/                    # Punkt startowy backendu
@@ -212,6 +214,7 @@ Nie musisz powtarzać kontekstu w każdym prompcie.
 | **Frontend Engineer** | Komponenty React/TS, strony, integracja API | `.agents/roles/frontend-engineer.md` |
 | **Platform Engineer** | Docker, CI/CD, infrastruktura, Makefile | `.agents/roles/platform-engineer.md` |
 | **E2E Engineer** | Testy end-to-end Playwright, POM, Docker | `.agents/roles/e2e-engineer.md` |
+| **AI Specialist** | Integracje LLM, prompty, structured output, tool calling | `.agents/roles/ai-specialist.md` |
 | **Quality Gate** | Audyt kodu, scoring w 6 kategoriach, VETO < 90% | `.agents/roles/quality-gate.md` |
 
 ### Przełączanie między rolami
@@ -222,6 +225,7 @@ Nie musisz powtarzać kontekstu w każdym prompcie.
 /as-frontend-engineer    # Aktywuj Frontend Engineera
 /as-architect            # Aktywuj Architekta
 /as-platform-engineer    # Aktywuj Platform Engineera
+/as-ai-specialist        # Aktywuj AI Specialist
 /as-quality-gate         # Aktywuj Quality Gate (zawsze w osobnej sesji)
 /as-e2e-engineer         # Aktywuj E2E Test Engineera
 ```

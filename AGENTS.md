@@ -213,6 +213,7 @@ Projekt używa systemu specjalizowanych agentów. Pełne definicje w `.agents/ro
 | **frontend-engineer** | Senior Frontend Engineer. React, TypeScript. | `frontend/`, `docs/agent-reports/` |
 | **platform-engineer** | Platform & Infra Engineer. Docker, CI/CD, cloud, monitoring. | `infra/`, `scripts/`, `Makefile` |
 | **e2e-engineer** | E2E Test Engineer. Playwright, POM, Docker. | `e2e/`, `infra/e2e/`, `docs/agent-reports/` |
+| **ai-specialist** | AI / LLM Specialist. Prompty, integracje modeli, structured output, tool calling, ewaluacja. | `backend/` (tylko AI/LLM), `docs/agent-reports/` |
 | **quality-gate** | Audytor jakości kodu. Punktacja w 6 kategoriach: PASS >= 95%, CONDITIONAL 90-94%, FAIL < 90% (VETO). Zawsze osobna sesja. | Cały projekt (read), `docs/agent-reports/` (write) |
 
 ## 13. Wszystkie zasoby agenta (cross-IDE)
@@ -224,6 +225,7 @@ Projekt używa systemu specjalizowanych agentów. Pełne definicje w `.agents/ro
 - `.agents/roles/frontend-engineer.md` - Senior Frontend Engineer
 - `.agents/roles/platform-engineer.md` - Platform & Infra Engineer
 - `.agents/roles/e2e-engineer.md` - E2E Test Engineer
+- `.agents/roles/ai-specialist.md` - AI / LLM Specialist
 - `.agents/roles/quality-gate.md` - audytor jakości kodu
 
 ### Skille (folder-based, format Anthropic SKILL.md)
@@ -258,6 +260,7 @@ Projekt używa systemu specjalizowanych agentów. Pełne definicje w `.agents/ro
 - `.agents/workflows/as-frontend-engineer.md` - przełącz na Frontend Engineer
 - `.agents/workflows/as-platform-engineer.md` - przełącz na Platform Engineer
 - `.agents/workflows/as-e2e-engineer.md` - przełącz na E2E Test Engineer
+- `.agents/workflows/as-ai-specialist.md` - przełącz na AI Specialist
 - `.agents/workflows/as-quality-gate.md` - uruchom Quality Gate (osobna sesja!)
 - `.agents/workflows/project-init.md` - inicjalizacja projektu (+ skill bootstrap)
 - `.agents/workflows/create-dt.md` - tworzenie DT z auto-numeracją
@@ -279,6 +282,7 @@ Projekt używa systemu specjalizowanych agentów. Pełne definicje w `.agents/ro
 - `.claude/agents/frontend-engineer.md` - cienki wrapper -> `.agents/roles/frontend-engineer.md`
 - `.claude/agents/platform-engineer.md` - cienki wrapper -> `.agents/roles/platform-engineer.md`
 - `.claude/agents/e2e-engineer.md` - cienki wrapper -> `.agents/roles/e2e-engineer.md`
+- `.claude/agents/ai-specialist.md` - cienki wrapper -> `.agents/roles/ai-specialist.md`
 - `.claude/agents/quality-gate.md` - cienki wrapper -> `.agents/roles/quality-gate.md`
 
 ### Komunikacja między agentami
@@ -287,6 +291,8 @@ Projekt używa systemu specjalizowanych agentów. Pełne definicje w `.agents/ro
 - `docs/agent-reports/review-*.md` - raporty review (quality-gate -> engineer)
 - `docs/agent-reports/arch-*.md` - raporty architektoniczne (architect -> engineer)
 - `docs/agent-reports/audit-*.md` - raporty audytu (quality-gate -> engineer)
+- Przy przekazaniu zadania do innej roli przygotuj gotowy prompt delegacyjny do skopiowania
+- Gdy zadanie dotyczy promptów, integracji modeli, tool calling lub structured output, rozważ przekazanie do `ai-specialist`
 
 ### Szablony dokumentów
 - `docs/szablony/_dt.md` - Dokument Techniczny
