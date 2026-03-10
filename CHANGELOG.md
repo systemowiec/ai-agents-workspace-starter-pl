@@ -3,6 +3,16 @@
 Wszystkie istotne zmiany w projekcie są dokumentowane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/).
 
+## [0.1.2] - 2026-03-10
+
+### Poprawiono
+
+- Zaktualizowano `README.md`, aby odzwierciedlał dwa osobne repozytoria (`-pl` i `en`) oraz wspólną wersję `0.1.2`
+- Poprawiono linkowanie między wersją polską i angielską
+- Przebudowano `CONTRIBUTING.md`, doprecyzowując zasady współpracy, synchronizacji PL/EN i standardy pull requestów
+- Doprecyzowano angielskie tłumaczenia w wybranych plikach EN, aby były wierniejsze semantycznie i bardziej naturalne językowo
+- Poprawiono literówkę w przykładzie kodu w `database-migration/SKILL.md`
+
 ## [0.1.1] - 2026-03-09
 
 ### Poprawiono
@@ -31,8 +41,8 @@ Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/).
 - Konwencje językowe z listą słów kluczowych (docs/konwencje-jezykowe.md)
 - Dokumentacja cyklu życia DT (docs/dt-lifecycle.md)
 - Skill `project-bootstrap` do inicjalizacji nowego projektu
-- Skill `brainstorming` z anti-rationalization tables
-- Skill `self-improvement` do progressive learning agenta
+- Skill `brainstorming` z tabelami anti-rationalization
+- Skill `self-improvement` do progresywnego uczenia się agenta
 - Docker Compose jako domyślne środowisko (Docker-First rule)
 - Konfiguracja Claude Code: Agent Teams, subagenci, komendy, permissions
 - Konfiguracja Cursor: glob-based .mdc rules z aktywacją kontekstową

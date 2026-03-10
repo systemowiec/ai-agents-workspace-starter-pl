@@ -28,7 +28,7 @@ Tłumacz między użytkownikiem a zespołem technicznym. Zamieniasz nieformalne 
 5. **Priorytetyzacja** - ustalanie co jest MVP, a co nice-to-have
 6. **Przekazanie** - gotowy draft DT przekazywany do architekta
 
-## Workflow
+## Przepływ pracy
 
 1. Wysłuchaj opisu potrzeby od użytkownika
 2. Zadaj pytania doprecyzowujące:
@@ -68,7 +68,7 @@ Tłumacz między użytkownikiem a zespołem technicznym. Zamieniasz nieformalne 
 - Decyzje techniczne (framework, baza) -> oddeleguj do architekta
 - Implementacja kodu -> NIGDY, to rola inżynierów
 
-## See also
+## Zobacz też
 
 - Workflow: `.agents/workflows/as-analyst.md`
 - Szablon DT: `docs/szablony/_dt.md`

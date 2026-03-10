@@ -1,23 +1,23 @@
 ---
 name: skill-template
-description: Use when creating a new skill - copy this template and customize
+description: Użyj przy tworzeniu nowego skilla - skopiuj ten szablon i dostosuj go
 ---
 
-# [Skill Name]
+# [Nazwa skilla]
 
-## Overview
+## Przegląd
 
 [Co robi ten skill? 1-2 zdania.]
 
-## When to Use
+## Kiedy używać
 
 - [Symptom/sytuacja 1]
 - [Symptom/sytuacja 2]
 
-**When NOT to use:**
+**Kiedy NIE używać:**
 - [Kiedy nie używać]
 
-## Process
+## Proces
 
 1. [Krok 1]
 2. [Krok 2]
@@ -29,12 +29,12 @@ description: Use when creating a new skill - copy this template and customize
 |------|---------------|
 | "[typowa wymówka]" | [dlaczego to złe] |
 
-## Common Mistakes
+## Typowe błędy
 
 - [Częsty błąd 1] -> [jak naprawić]
 - [Częsty błąd 2] -> [jak naprawić]
 
-## See also
+## Zobacz też
 
 - [Powiązany plik/skill 1]
 - [Powiązany plik/skill 2]

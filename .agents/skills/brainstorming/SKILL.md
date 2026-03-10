@@ -1,18 +1,18 @@
 ---
 name: brainstorming
-description: Use when starting any creative work - creating features, designing architecture, planning refactors. Explores requirements and design before implementation.
+description: Użyj na początku każdej pracy kreatywnej - tworzenia feature'ów, projektowania architektury, planowania refaktorów. Pomaga zbadać wymagania i design przed implementacją.
 ---
 
-# Brainstorming - Design Before Code
+# Brainstorming - design before code
 
-## Overview
+## Przegląd
 
 Pomóż przekształcić pomysły w pełni dopracowane koncepcje przez naturalny dialog.
 Zrozum kontekst projektu, zadawaj pytania, zaproponuj rozwiązania, uzyskaj aprobatę PRZED kodowaniem.
 
 > **HARD GATE**: NIE KODUJ przed zatwierdzeniem designu. Dotyczy KAŻDEGO projektu bez względu na postrzeganą prostotę.
 
-## When to Use
+## Kiedy używać
 
 - Nowy feature do zaimplementowania
 - Refaktor wymagający decyzji architektonicznych
@@ -20,7 +20,7 @@ Zrozum kontekst projektu, zadawaj pytania, zaproponuj rozwiązania, uzyskaj apro
 - Nowy moduł lub serwis
 - Zmiana infrastruktury
 
-**When NOT to use:**
+**Kiedy NIE używać:**
 - Bugfix z jasną przyczyną
 - Zmiana konfiguracji
 - Aktualizacja dokumentacji
@@ -34,7 +34,7 @@ Zrozum kontekst projektu, zadawaj pytania, zaproponuj rozwiązania, uzyskaj apro
 | "Szybko to naprawię" | Szybkie fixy bez designu = regression |
 | "User chce żeby zrobić, nie planować" | Instrukcja mówi CO, nie JAK. Design mówi JAK. |
 
-## Process
+## Proces
 
 ### 1. Zbadaj kontekst projektu
 - Sprawdź pliki, docs, ostatnie commity
@@ -64,14 +64,14 @@ Zrozum kontekst projektu, zadawaj pytania, zaproponuj rozwiązania, uzyskaj apro
 - Stwórz plan implementacji (workflow `dt-development.md`)
 - NIE koduj bez planu
 
-## Key Principles
+## Kluczowe zasady
 
 - **Jedno pytanie na raz** - nie przytłaczaj
-- **YAGNI bezlitosnie** - usuń zbędne features z każdego designu
+- **YAGNI bezlitośnie** - usuń zbędne features z każdego designu
 - **Eksploruj alternatywy** - zawsze 2-3 podejścia
 - **Inkrementalna walidacja** - prezentuj, uzyskaj aprobatę, idź dalej
 
-## See also
+## Zobacz też
 
 - Workflow: `.agents/workflows/dt-development.md`
 - Workflow: `.agents/workflows/create-dt.md`

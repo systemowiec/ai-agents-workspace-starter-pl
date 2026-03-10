@@ -3,7 +3,7 @@ description: Reguły dokumentacji - DT, szablony, standardy
 globs: docs/**
 ---
 
-# Docs Rules
+# Reguły dokumentacji
 
 ## Dokumenty Techniczne (DT)
 
@@ -40,7 +40,7 @@ DT **nie są wymagane** dla małych poprawek - w razie potrzeby można je przygo
 - Język dokumentacji: polski
 - Język kodu: angielski
 - Mermaid dla diagramów
-- Markdown tables zamiast ASCII art
+- Tabele Markdown zamiast ASCII art
 - Brak estymacji godzinowych w jakimkolwiek dokumencie
 - Brak typograficznych myślników - wyłącznie `-` (ASCII 45)
 - Linki do plików: względne ścieżki

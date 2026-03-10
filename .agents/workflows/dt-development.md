@@ -1,78 +1,78 @@
 ---
-description: End-to-end workflow for implementing a DT - from analysis to commit
+description: Kompletny workflow implementacji DT - od analizy do commita
 ---
 
-# DT Development Workflow
+# Workflow implementacji DT
 
-> **Primary workflow.** EVERY task MUST go through this flow.
-> Read also: `rules/git-workflow.md` (branch, commit, push).
+> **Główny workflow.** KAŻDE zadanie MUSI przejść przez ten proces.
+> Przeczytaj także: `rules/git-workflow.md` (branch, commit, push).
 
 ---
 
-## Two Modes
+## Dwa tryby
 
-### Mode A: Existing DT (DT-NNN)
+### Tryb A: Istniejący DT (DT-NNN)
 
-User provides DT (e.g. "do DT-001" or pastes task tracker link).
+Użytkownik przekazuje DT (np. "zrób DT-001" albo wkleja link do task trackera).
 Agent:
-1. Reads DT content
-2. Creates branch (`feat/DT-001-slug`)
-3. Goes through Phase 1-8
+1. Czyta treść DT
+2. Tworzy branch (`feat/DT-001-slug`)
+3. Przechodzi przez fazy 1-8
 
-### Mode B: Ad-hoc task from user
+### Tryb B: Zadanie ad-hoc od użytkownika
 
-User describes task verbally (e.g. "add User entity").
+Użytkownik opisuje zadanie słownie (np. "dodaj encję User").
 Agent:
-1. NO DT - starts with analysis and plan
-2. Branch created only AFTER plan approval
-3. At the end (Phase 7) proposes creating DT-NNN
+1. NIE ma DT - zaczyna od analizy i planu
+2. Branch jest tworzony dopiero PO akceptacji planu
+3. Na końcu (faza 7) proponuje utworzenie DT-NNN
 
-> In both modes the same flow below applies.
-
----
-
-## Phase 1: Analysis
-
-1. Read requirements (task tracker, `docs/dt/`, or user description)
-2. Identify modules, services, and files to change
-3. Check existing tests and related code
-4. Review documentation (`docs/`)
+> W obu trybach obowiązuje ten sam proces opisany poniżej.
 
 ---
 
-## Phase 2: Plan
+## Faza 1: Analiza
 
-Create implementation plan containing:
-
-- **Files to change** - existing and new
-- **Architecture** - consistent with project architecture? Which layers?
-- **Dependencies** - other DTs, services, migrations
-- **Risks** - breaking changes, backward compatibility
-- **Test strategy** - which tests to write/update
-
-**Present plan to user and WAIT for approval.**
-
-> DO NOT start coding before plan is approved.
+1. Przeczytaj wymagania (task tracker, `docs/dt/` albo opis od użytkownika)
+2. Zidentyfikuj moduły, serwisy i pliki do zmiany
+3. Sprawdź istniejące testy i powiązany kod
+4. Przejrzyj dokumentację (`docs/`)
 
 ---
 
-## Phase 3: Documentation (BEFORE code!)
+## Faza 2: Plan
 
-> **Documentation First** - `rules/global.md` Cardinal Rule #2
+Przygotuj plan implementacji zawierający:
 
-- Update project docs with the planned changes
-- If adding an entity -> update data model docs
-- If adding an endpoint -> update API documentation
-- If changing auth -> update auth documentation
+- **Pliki do zmiany** - istniejące i nowe
+- **Architektura** - czy zmiana jest zgodna z architekturą projektu? Których warstw dotyczy?
+- **Zależności** - inne DT, serwisy, migracje
+- **Ryzyka** - breaking changes, backward compatibility
+- **Strategia testów** - które testy trzeba dopisać lub zaktualizować
+
+**Przedstaw plan użytkownikowi i CZEKAJ na akceptację.**
+
+> NIE zaczynaj kodowania przed akceptacją planu.
 
 ---
 
-## Phase 4: Branch
+## Faza 3: Dokumentacja (PRZED kodem!)
 
-> Read `rules/git-workflow.md` if you haven't.
+> **Documentation First** - `rules/global.md`, Kardynalna Zasada nr 2
 
-- **Mode A** (DT exists): branch should already exist from Phase 1
-- **Mode B** (ad-hoc): create branch now, after plan approval
+- Zaktualizuj dokumentację projektu zgodnie z planowaną zmianą
+- Jeśli dodajesz encję -> zaktualizuj dokumentację modelu danych
+- Jeśli dodajesz endpoint -> zaktualizuj dokumentację API
+- Jeśli zmieniasz auth -> zaktualizuj dokumentację auth
+
+---
+
+## Faza 4: Branch
+
+> Jeśli jeszcze tego nie zrobiłeś, przeczytaj `rules/git-workflow.md`.
+
+- **Tryb A** (DT istnieje): branch powinien już istnieć od fazy 1
+- **Tryb B** (ad-hoc): utwórz branch teraz, po akceptacji planu
 
 ```bash
 git checkout -b feat/DT-NNN-slug
@@ -80,39 +80,39 @@ git checkout -b feat/DT-NNN-slug
 
 ---
 
-## Phase 5: Implementation
+## Faza 5: Implementacja
 
-Follow project architecture order (e.g. domain -> application -> adapters -> interface).
+Pracuj zgodnie z kolejnością architektoniczną projektu (np. domain -> application -> adapters -> interface).
 
-Rules:
-- Entity/Model first, then Repository/Service, then Router/View
-- UI framework components for UI (check `frontend/src/components/ (istniejące)` first)
-- Dark/Light mode mandatory for frontend changes
-- Docker-only - zero local commands
-
----
-
-## Phase 6: Verification
-
-**MANDATORY - run `workflows/post-impl-verify.md` BEFORE saying "done".**
-
-1. Rebuild changed service
-2. Check containers health
-3. Check logs (no ERROR/Traceback)
-4. Run tests
-5. TypeScript check (if frontend changed)
-
-**If ANYTHING fails - fix and repeat from step 1.**
+Zasady:
+- Najpierw Entity/Model, potem Repository/Service, na końcu Router/View
+- Dla UI używaj komponentów frameworka UI (najpierw sprawdź `frontend/src/components/`)
+- Dark/Light mode jest obowiązkowy przy zmianach frontendowych
+- Tylko Docker - zero komend lokalnych
 
 ---
 
-## Phase 7: Commit
+## Faza 6: Weryfikacja
 
-> Read `rules/git-workflow.md` - full commit rules.
+**OBOWIĄZKOWE - uruchom `workflows/post-impl-verify.md` PRZED zgłoszeniem zakończenia pracy.**
 
-**NEVER commit automatically. WAIT for user approval.**
+1. Przebuduj zmieniony serwis
+2. Sprawdź zdrowie kontenerów
+3. Sprawdź logi (bez ERROR/Traceback)
+4. Uruchom testy
+5. Sprawdź TypeScript (jeśli frontend był zmieniany)
 
-After approval, propose:
+**Jeśli COKOLWIEK się nie powiedzie - napraw problem i powtórz od kroku 1.**
+
+---
+
+## Faza 7: Commit
+
+> Przeczytaj `rules/git-workflow.md` - pełne zasady commitowania.
+
+**NIGDY nie commituj automatycznie. CZEKAJ na zgodę użytkownika.**
+
+Po uzyskaniu zgody zaproponuj:
 ```bash
 git add <files>
 git commit -m "{type}({scope}): short description"
@@ -120,42 +120,42 @@ git commit -m "{type}({scope}): short description"
 
 ---
 
-## Phase 8: Report
+## Faza 8: Raport
 
-Create implementation report in `docs/agent-reports/DT-NNN/impl-backend-v1.md`:
+Utwórz raport implementacji w `docs/agent-reports/DT-NNN/impl-backend-v1.md`:
 
 ```markdown
-# Implementation: [DT/task]
+# Implementacja: [DT/zadanie]
 
-## Summary
-What was implemented.
+## Podsumowanie
+Co zostało zaimplementowane.
 
-## Changes
-- `path/to/file.py` - description
-- `path/to/other.py` - description
+## Zmiany
+- `path/to/file.py` - opis
+- `path/to/other.py` - opis
 
-## Documentation Updated
-- API documentation updated
+## Zaktualizowana dokumentacja
+- Zaktualizowano dokumentację API
 
-## Verification
-- [ ] Containers running
-- [ ] Tests passing
-- [ ] Logs clean
+## Weryfikacja
+- [ ] Kontenery działają
+- [ ] Testy przechodzą
+- [ ] Logi są czyste
 
-## Follow-ups
-- Future improvement 1
+## Follow-upy
+- Usprawnienie 1 w przyszłości
 ```
 
 ---
 
-## Phase 9: Summary
+## Faza 9: Podsumowanie
 
-Present to user:
-1. What was implemented
-2. Documentation updates made
-3. Commit command (awaiting approval)
-4. Report location
-5. Any follow-ups
+Przedstaw użytkownikowi:
+1. Co zostało zaimplementowane
+2. Jakie zmiany w dokumentacji zostały wykonane
+3. Komendę commita (oczekującą na akceptację)
+4. Lokalizację raportu
+5. Ewentualne follow-upy
 
-> **NEVER say "done" without Phase 6 (verification).**
-> **NEVER push to git - user controls push.**
+> **NIGDY nie mów "zrobione" bez fazy 6 (weryfikacji).**
+> **NIGDY nie pushuj do gita - użytkownik kontroluje push.**

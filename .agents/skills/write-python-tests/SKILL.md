@@ -1,13 +1,13 @@
 ---
 name: write-python-tests
-description: Use when writing or updating Python tests - pytest, factory-boy, test isolation, edge cases "Step-by-step guide to write and run Python tests (pytest + factory-boy)"
+description: Użyj przy pisaniu lub aktualizacji testów Pythona - pytest, factory-boy, izolacja testów, edge cases. "Przewodnik krok po kroku pisania i uruchamiania testów Pythona (pytest + factory-boy)"
 ---
 
-# Skill: Write Python Tests
+# Skill: Pisanie testów Python
 
-## Unit Tests (`backend/app/tests/unit/`)
+## Testy jednostkowe (`backend/app/tests/unit/`)
 
-Test services in isolation (mock repositories):
+Testuj serwisy w izolacji (mockowane repozytoria):
 
 ```python
 # tests/unit/test_resource_service.py
@@ -42,9 +42,9 @@ async def test_get_nonexistent_resource_raises(service, mock_repo):
         await service.get_by_id(999)
 ```
 
-## Integration Tests (`backend/app/tests/integration/`)
+## Testy integracyjne (`backend/app/tests/integration/`)
 
-Test API endpoints with httpx + TestClient:
+Testuj endpointy API przy użyciu `httpx` + `TestClient`:
 
 ```python
 # tests/integration/test_resource_api.py
@@ -75,7 +75,7 @@ async def test_unauthenticated_returns_401():
     assert response.status_code == 401
 ```
 
-## Factories (`backend/app/tests/factories.py`)
+## Fabryki (`backend/app/tests/factories.py`)
 
 ```python
 import factory
@@ -96,43 +96,43 @@ class ResourceFactory(factory.Factory):
     is_active = True
 ```
 
-## Running Tests
+## Uruchamianie testów
 
 ```bash
-# ALL tests
+# Wszystkie testy
 make test
 
-# Verbose output
+# Szczegółowy output
 docker compose -f infra/docker-compose.yml exec backend pytest -v --tb=short
 
-# Specific file
+# Konkretny plik
 docker compose -f infra/docker-compose.yml exec backend pytest app/tests/unit/test_resource_service.py
 
-# Specific test
+# Konkretny test
 docker compose -f infra/docker-compose.yml exec backend pytest -k "test_create_resource_success"
 
-# With coverage
+# Z coverage
 docker compose -f infra/docker-compose.yml exec backend pytest --cov=app --cov-report=term-missing
 ```
 
-## TDD Flow (Recommended)
+## Przepływ TDD (zalecany)
 
-1. **RED** - Write failing test
-2. **GREEN** - Write minimum code to pass
-3. **REFACTOR** - Clean up, optimize
+1. **RED** - napisz test, który nie przechodzi
+2. **GREEN** - dopisz minimalny kod potrzebny do przejścia testu
+3. **REFACTOR** - uporządkuj i zoptymalizuj rozwiązanie
 
-## Rules
+## Zasady
 
-- Tests MUST run in Docker (NEVER locally)
-- Each service method requires unit tests
-- Each API endpoint requires integration test
-- Use `factory-boy` for test data (NOT fixtures)
-- Test edge cases: null, empty, boundary, error
+- Testy MUSZĄ działać w Dockerze (NIGDY lokalnie)
+- Każda metoda serwisowa wymaga testów jednostkowych
+- Każdy endpoint API wymaga testu integracyjnego
+- Do danych testowych używaj `factory-boy` (NIE fixtures)
+- Testuj edge cases: null, empty, boundary, error
 - Naming: `test_<co>_<scenariusz>` or `test_<co>_<scenariusz>_<oczekiwanie>`
 
 ---
 
-## See also (MANDATORY)
+## Zobacz też (OBOWIĄZKOWE)
 
-- **Before implementation** - read `workflows/dt-development.md`
-- **After implementation** - run `workflows/post-impl-verify.md`
+- **Przed implementacją** - przeczytaj `workflows/dt-development.md`
+- **Po implementacji** - uruchom `workflows/post-impl-verify.md`

@@ -12,13 +12,13 @@
 - Przed każdą większą zmianą obowiązuje: **plan -> review -> dopiero implementacja**.
 - Celem jest **czysty, przewidywalny kod**, minimalna magia, maksymalna czytelność.
 
-## 2. Four Cardinal Rules (CRITICAL)
+## 2. Cztery Kardynalne Zasady (KRYTYCZNE)
 
-### 2.1 Quality-First Engineering (NO SHORTCUTS)
+### 2.1 Inżynieria Quality-First (BEZ SKRÓTÓW)
 
 **Najlepsze możliwe rozwiązanie. Zawsze. Koszt jest NAJMNIEJ ważny.**
 
-- Najlepsza architektura, tooling, wzorce - nigdy "szybko i tanio"
+- Najlepsza architektura, narzędzia i wzorce - nigdy "szybko i tanio"
 - **Proaktywne usprawnianie** - jeśli widzisz coś lepszego, NATYCHMIAST zasygnalizuj
 - Każda decyzja oceniana pod kątem skalowalności i utrzymywalności
 - **Brak przedwczesnego upraszczania** - nie odrzucaj wzorców jako "overengineering" bez dowodu
@@ -33,7 +33,7 @@ DOKUMENTACJA -> DT -> IMPLEMENTACJA -> WERYFIKACJA
 ```
 
 - Jeśli feature nie jest udokumentowany, najpierw go udokumentuj
-- Dokumentacja = source of truth; kod realizuje jej treść
+- Dokumentacja = źródło prawdy; kod realizuje jej treść
 
 ### 2.3 Docker First
 
@@ -55,9 +55,9 @@ make lint                                npm install
 2. **Plan** - przedstaw, CZEKAJ na akceptację
 3. **Dokumentacja** - zaktualizuj docs PIERWSZA
 4. **Branch** - stwórz wg `rules/git-workflow.md`
-5. **Implementacja** - TDD where applicable
+5. **Implementacja** - TDD tam, gdzie ma to zastosowanie
 6. **Weryfikacja** - `workflows/post-impl-verify.md`
-7. **Commit** - CZEKAJ na zgodę usera (`rules/git-workflow.md`)
+7. **Commit** - CZEKAJ na zgodę użytkownika (`rules/git-workflow.md`)
 
 ## 3. Praca z kodem
 
@@ -66,10 +66,10 @@ make lint                                npm install
 - Kod musi być testowalny, deterministyczny i modularny.
 - Unikaj nadmiernej abstrakcji i aliasów.
 
-## 4. Coding Standards - Enterprise Level
+## 4. Standardy kodowania - poziom enterprise
 
 1. **SOLID** - Single Responsibility, DI, Interface-based contracts
-2. **Granular classes** - max 500 linii, max 50 linii/funkcja
+2. **Granular classes** - max 500 linii, max 50 linii na funkcję
 3. **No Magic** - explicit > implicit, no magic numbers
 4. **Standard ASCII** - NIGDY em-dash, en-dash, smart quotes. TYLKO `-` (ASCII 45)
 5. **No emojis in code** - dozwolone tylko w `.md`
@@ -158,11 +158,11 @@ DRAFT -> DESIGN -> PLANNED -> IN_PROGRESS -> REVIEW -> DONE
 
 | Status | Rola | Opis |
 |---|---|---|
-| DRAFT | Analyst | Zbieranie wymagań, acceptance criteria |
+| DRAFT | Analyst | Zbieranie wymagań, kryteria akceptacji |
 | DESIGN | Architect | Plan techniczny, przypisanie ról |
 | PLANNED | Engineer(s) | Planowanie implementacji per rola |
 | IN_PROGRESS | Engineer(s) | Implementacja + raporty |
-| REVIEW | Quality Gate | Audyt, scoring, verdykt |
+| REVIEW | Quality Gate | Audyt, punktacja, werdykt |
 | DONE | - | DT zamknięty |
 
 Pełna dokumentacja: `docs/dt-lifecycle.md`
@@ -213,7 +213,7 @@ Projekt używa systemu specjalizowanych agentów. Pełne definicje w `.agents/ro
 | **frontend-engineer** | Senior Frontend Engineer. React, TypeScript. | `frontend/`, `docs/agent-reports/` |
 | **platform-engineer** | Platform & Infra Engineer. Docker, CI/CD, cloud, monitoring. | `infra/`, `scripts/`, `Makefile` |
 | **e2e-engineer** | E2E Test Engineer. Playwright, POM, Docker. | `e2e/`, `infra/e2e/`, `docs/agent-reports/` |
-| **quality-gate** | Enterprise Code Auditor. Scoring w 6 kategoriach: PASS >= 95%, CONDITIONAL 90-94%, FAIL < 90% (VETO). Zawsze osobna sesja. | Cały projekt (read), `docs/agent-reports/` (write) |
+| **quality-gate** | Enterprise Code Auditor. Punktacja w 6 kategoriach: PASS >= 95%, CONDITIONAL 90-94%, FAIL < 90% (VETO). Zawsze osobna sesja. | Cały projekt (read), `docs/agent-reports/` (write) |
 
 ## 13. Wszystkie zasoby agenta (cross-IDE)
 
@@ -231,23 +231,23 @@ Projekt używa systemu specjalizowanych agentów. Pełne definicje w `.agents/ro
 - `.agents/skills/backend-patterns/SKILL.md` - FastAPI, Repository, Service, exceptions
 - `.agents/skills/database-patterns/SKILL.md` - SQLAlchemy async, repo pattern, Alembic
 - `.agents/skills/database-migration/SKILL.md` - Procedura migracji bazy danych
-- `.agents/skills/storage-patterns/SKILL.md` - File storage, upload, per-tenant izolacja
+- `.agents/skills/storage-patterns/SKILL.md` - File storage, upload, izolacja per tenant
 - `.agents/skills/infra-patterns/SKILL.md` - Docker, Dockerfile, Makefile
 - `.agents/skills/frontend-patterns/SKILL.md` - React, TypeScript, hooks
 - `.agents/skills/add-endpoint/SKILL.md` - Procedura dodawania REST endpoint
 - `.agents/skills/add-frontend-page/SKILL.md` - Procedura dodawania strony frontend
 - `.agents/skills/write-python-tests/SKILL.md` - Procedura pisania testów
-- `.agents/skills/brainstorming/SKILL.md` - Design before code, anti-rationalization
+- `.agents/skills/brainstorming/SKILL.md` - Design before code, przeciwdziałanie racjonalizacji
 - `.agents/skills/self-improvement/SKILL.md` - Progressive learning po sesjach
 - `.agents/skills/write-e2e-tests/SKILL.md` - Procedura pisania testów E2E (Playwright)
 - `.agents/skills/project-bootstrap/SKILL.md` - Inicjalizacja nowego projektu
-- `.agents/skills/_template/SKILL.md` - Template dla nowych skilli
+- `.agents/skills/_template/SKILL.md` - Szablon dla nowych skilli
 
-### Rules (reguły globalne)
-- `.agents/rules/global.md` - 4 Cardinal Rules, Coding Standards, Escalation
-- `.agents/rules/git-workflow.md` - Branching, commity, push, PR
+### Reguły globalne
+- `.agents/rules/global.md` - 4 Cardinal Rules, standardy kodowania, eskalacja
+- `.agents/rules/git-workflow.md` - branching, commity, push, PR
 
-### Learnings (progressive learning)
+### Learnings (uczenie progresywne)
 - `.agents/learnings/gotchas.md` - pułapki i nietypowe zachowania
 - `.agents/learnings/README.md` - format i zasady dodawania wpisów
 
@@ -264,25 +264,25 @@ Projekt używa systemu specjalizowanych agentów. Pełne definicje w `.agents/ro
 - `.agents/workflows/complete-dt.md` - zamykanie DT po implementacji
 - `.agents/workflows/dt-development.md` - główny workflow implementacji DT
 - `.agents/workflows/post-impl-verify.md` - obowiązkowa weryfikacja po impl
-- `.agents/workflows/code-review.md` - procedura code review
+- `.agents/workflows/code-review.md` - procedura przeglądu kodu
 - `.agents/workflows/dt-report.md` - format raportów DT
 
 ### Komendy (Claude Code)
 - `.claude/commands/implement.md` - implementacja DT z raportem
-- `.claude/commands/audit.md` - standalone code audit (quality-gate)
-- `.claude/commands/review.md` - szybki code review
+- `.claude/commands/audit.md` - samodzielny audyt kodu (quality-gate)
+- `.claude/commands/review.md` - szybki przegląd kodu
 
 ### Subagenci (Claude Code)
-- `.claude/agents/analyst.md` - thin wrapper -> `.agents/roles/analyst.md`
-- `.claude/agents/architect.md` - thin wrapper -> `.agents/roles/architect.md`
-- `.claude/agents/backend-engineer.md` - thin wrapper -> `.agents/roles/backend-engineer.md`
-- `.claude/agents/frontend-engineer.md` - thin wrapper -> `.agents/roles/frontend-engineer.md`
-- `.claude/agents/platform-engineer.md` - thin wrapper -> `.agents/roles/platform-engineer.md`
-- `.claude/agents/e2e-engineer.md` - thin wrapper -> `.agents/roles/e2e-engineer.md`
-- `.claude/agents/quality-gate.md` - thin wrapper -> `.agents/roles/quality-gate.md`
+- `.claude/agents/analyst.md` - cienki wrapper -> `.agents/roles/analyst.md`
+- `.claude/agents/architect.md` - cienki wrapper -> `.agents/roles/architect.md`
+- `.claude/agents/backend-engineer.md` - cienki wrapper -> `.agents/roles/backend-engineer.md`
+- `.claude/agents/frontend-engineer.md` - cienki wrapper -> `.agents/roles/frontend-engineer.md`
+- `.claude/agents/platform-engineer.md` - cienki wrapper -> `.agents/roles/platform-engineer.md`
+- `.claude/agents/e2e-engineer.md` - cienki wrapper -> `.agents/roles/e2e-engineer.md`
+- `.claude/agents/quality-gate.md` - cienki wrapper -> `.agents/roles/quality-gate.md`
 
 ### Komunikacja między agentami
-- `docs/agent-reports/README.md` - protokol raportów (formaty, cykl zycia)
+- `docs/agent-reports/README.md` - protokół raportów (formaty, cykl życia)
 - `docs/agent-reports/impl-*.md` - raporty implementacji (engineer -> quality-gate)
 - `docs/agent-reports/review-*.md` - raporty review (quality-gate -> engineer)
 - `docs/agent-reports/arch-*.md` - raporty architektoniczne (architect -> engineer)
@@ -293,11 +293,11 @@ Projekt używa systemu specjalizowanych agentów. Pełne definicje w `.agents/ro
 - `docs/szablony/_dt-raport.md` - Raport implementacji DT
 - `docs/szablony/_audit-raport.md` - Raport audytu Quality Gate
 
-### Entry pointy per IDE
+### Punkty wejścia per IDE
 - `AGENTS.md` - SSoT dla WSZYSTKICH środowisk (ten plik)
 - `CLAUDE.md` - Claude Code CLI (agent teams, subagenci, komendy)
-- `.claude/settings.json` - Claude Code permissions
-- `.cursor/rules/*.mdc` - Cursor IDE (glob-based rules)
+- `.claude/settings.json` - uprawnienia Claude Code
+- `.cursor/rules/*.mdc` - Cursor IDE (reguły oparte o globs)
 - `.codex/config.toml` - OpenAI Codex CLI project config
 
 > Antigravity (od v1.20.3) czyta `AGENTS.md` natywnie - nie wymaga osobnego pliku.

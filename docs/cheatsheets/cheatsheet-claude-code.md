@@ -1,4 +1,4 @@
-# Claude Code - Cheatsheet 2026
+# Claude Code - ściąga 2026
 
 > Źródła: oficjalna dokumentacja Anthropic, Claude Code Docs.
 
@@ -84,7 +84,7 @@ projekt/
 
 ---
 
-## Skills
+## Skille
 
 Pole `description` jest kluczowe - decyduje o auto-aktywacji.
 
@@ -96,7 +96,7 @@ allowed-tools: Read, Grep, Glob
 ---
 ```
 
-| Scope | Lokalizacja |
+| Zakres | Lokalizacja |
 |---|---|
 | Projektowy | `.claude/skills/<nazwa>/SKILL.md` |
 | Personalny | `~/.claude/skills/<nazwa>/SKILL.md` |
@@ -178,7 +178,7 @@ Tryb Delegate (Shift+Tab): lead traci dostęp do Edit/Write/Bash, może tylko sp
 | `/model` | Zmień model |
 | `/copy` | Kopiuj ostatni output |
 | `/batch <instrukcja>` | Równoległe zmiany w wielu plikach |
-| `/simplify` | Review ostatnich zmian (3 agentów równolegle) |
+| `/simplify` | Przegląd ostatnich zmian (3 agentów równolegle) |
 
 ---
 
@@ -211,7 +211,7 @@ Nowa sesja per feature
 
 ---
 
-## Best practices
+## Dobre praktyki
 
 - CLAUDE.md poniżej 150 linii - dłuższe pliki zmniejszają adherencję
 - Szczegóły przenoś do osobnych plików z @importami
@@ -229,8 +229,8 @@ W naszym starterze Claude Code używa:
 
 | Element | Lokalizacja |
 |---|---|
-| Entry point | `CLAUDE.md` (root) |
+| Punkt wejścia | `CLAUDE.md` (root) |
 | Subagenci | `.claude/agents/*.md` (thin wrappery do `.agents/roles/`) |
 | Slash commands | `.claude/commands/` (implement, audit, review) |
-| Skills | `.claude/skills -> ../.agents/skills` (symlink) |
+| Skille | `.claude/skills -> ../.agents/skills` (symlink) |
 | Uprawnienia | `.claude/settings.json` (Docker-first deny list) |

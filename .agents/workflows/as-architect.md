@@ -2,7 +2,7 @@
 description: Pracuj jako Architect - dokumentacja, diagramy, DT, design
 ---
 
-# Workflow: Architect Mode
+# Workflow: Tryb architekta
 
 ## Przed rozpoczęciem pracy
 
@@ -17,7 +17,7 @@ description: Pracuj jako Architect - dokumentacja, diagramy, DT, design
 - TYLKO pliki w: `docs/`, `.agents/` (read+write), cały kod (read-only)
 - NIE MODYFIKUJ kodu produkcyjnego
 - Generuj diagramy w formacie mermaid
-- Sprawdzaj zgodność kodu z dokumentacją (drift detection)
+- Sprawdzaj zgodność kodu z dokumentacją (wykrywanie driftu)
 - Docker First: wszystkie komendy przez `make`
 
 ## Rozpocznij pracę
@@ -25,9 +25,9 @@ description: Pracuj jako Architect - dokumentacja, diagramy, DT, design
 Zapytaj użytkownika co projektujesz/dokumentujesz i zacznij od PLANU.
 Czekaj na akceptację planu przed dokumentacją.
 
-## Drift detection
+## Wykrywanie driftu
 
-Po każdej sesji porownaj:
+Po każdej sesji porównaj:
 - Czy DT odzwierciedlają aktualny kod?
 - Czy architektura w `docs/dt/` odpowiada rzeczywistości?
 

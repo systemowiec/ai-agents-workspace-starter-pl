@@ -4,7 +4,7 @@ description: >
   Wzorce dostępu do bazy danych. Czytaj gdy pracujesz z modelami, repozytoriami, migracjami.
 ---
 
-# Skill: Database Patterns
+# Skill: Wzorce bazodanowe
 
 > Wzorce dostępu do bazy danych. Czytaj gdy pracujesz z modelami, repozytoriami, migracjami.
 
@@ -28,7 +28,7 @@ Wewnątrz Dockera używaj hostname `mariadb` (nazwa serwisu), NIE `localhost`.
 
 ## Repository Pattern (Hexagonal)
 
-Bazą danych jest adapterem. Nigdy nie importuj SQLAlchemy w warstwie domain/application.
+Baza danych jest adapterem. Nigdy nie importuj SQLAlchemy w warstwie domain/application.
 
 ```
 domain/
@@ -114,7 +114,7 @@ class UserModel(Base):
         return cls(id=entity.id, email=entity.email, name=entity.name, is_active=entity.is_active)
 ```
 
-### Session Factory
+### Fabryka sesji
 
 ```python
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
@@ -130,6 +130,11 @@ async def get_session() -> AsyncSession:
 ```
 
 ## Migracje (Alembic)
+
+Przed utworzeniem nowej migracji:
+- sprawdź istniejące pliki w `backend/alembic/versions/`
+- zachowaj dokładnie tę samą konwencję numeracji i nazewnictwa, która już występuje w projekcie
+- nie wprowadzaj własnego formatu nazw plików
 
 ```bash
 # Wszystko przez Docker:

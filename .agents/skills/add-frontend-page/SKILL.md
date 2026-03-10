@@ -1,13 +1,13 @@
 ---
 name: add-frontend-page
-description: Use when adding a new page to the React frontend - routing, component, state, API integration "Step-by-step guide to add a new page in the React frontend (UI template)"
+description: Użyj przy dodawaniu nowej strony do frontendu React - routing, komponent, state, integracja z API. "Przewodnik krok po kroku dodawania nowej strony do frontendu React (szablon UI)"
 ---
 
-# Skill: Add Frontend Page
+# Skill: Dodawanie strony frontendu
 
-Full procedure for adding a new page in the React SPA with UI template.
+Pełna procedura dodawania nowej strony w React SPA z użyciem szablonu UI.
 
-## 0. Check UI framework Template FIRST
+## 0. Najpierw sprawdź szablon UI frameworka
 
 > **NIGDY nie twórz UI od zera.** Sprawdź `frontend/src/components/ (istniejące)` - czy istnieje gotowy odpowiednik.
 
@@ -15,7 +15,7 @@ Full procedure for adding a new page in the React SPA with UI template.
 2. Zaproponuj mapping: "Użyję card z X, tabelę z Y"
 3. Po akceptacji - implementuj
 
-## 1. Create Page Component (`frontend/src/features/`)
+## 1. Utwórz komponent strony (`frontend/src/features/`)
 
 ```tsx
 // frontend/src/features/my-module/components/MyModulePage.tsx
@@ -40,7 +40,7 @@ export function MyModulePage() {
 }
 ```
 
-## 2. Add Route (`frontend/src/routing/`)
+## 2. Dodaj route (`frontend/src/routing/`)
 
 ```tsx
 {
@@ -49,7 +49,7 @@ export function MyModulePage() {
 }
 ```
 
-## 3. Add Menu Item (`frontend/src/config/`)
+## 3. Dodaj element menu (`frontend/src/config/`)
 
 ```tsx
 {
@@ -59,26 +59,26 @@ export function MyModulePage() {
 }
 ```
 
-## 4. UI framework Components - Quick Reference
+## 4. Komponenty UI frameworka - szybkie odniesienie
 
-| Use Case | Component / Class |
-|----------|------------------|
-| Page wrapper | `<Container>` |
+| Zastosowanie | Komponent / klasa |
+|--------------|-------------------|
+| Wrapper strony | `<Container>` |
 | Card | `card`, `card-header`, `card-body` |
-| Data table | `table table-border` + DataGrid |
-| Button | `btn btn-primary`, `btn btn-sm btn-light` |
+| Tabela danych | `table table-border` + DataGrid |
+| Przycisk | `btn btn-primary`, `btn btn-sm btn-light` |
 | Badge | `badge badge-success`, `badge badge-warning` |
-| Icons | `<KeenIcon icon="..." />` |
-| Modal | UI framework modal component |
+| Ikony | `<KeenIcon icon="..." />` |
+| Modal | komponent modala z UI frameworka |
 
-## 5. Dark Mode - MANDATORY
+## 5. Dark Mode - OBOWIĄZKOWY
 
-Every element MUST support both themes:
+Każdy element MUSI obsługiwać oba motywy:
 ```tsx
 <div className="bg-white dark:bg-coal-600 text-gray-800 dark:text-gray-200">
 ```
 
-## 6. Data Fetching Pattern
+## 6. Wzorzec pobierania danych
 
 ```tsx
 import { useQuery } from '@tanstack/react-query';
@@ -106,9 +106,9 @@ export function MyComponent() {
 
 ---
 
-## See also (MANDATORY)
+## Zobacz też (OBOWIĄZKOWE)
 
-- **Before implementation** - read `workflows/dt-development.md`
-- **Frontend patterns** - read `skills/frontend-patterns.md`
-- **Frontend role** - read `roles/frontend-engineer.md`
-- **After implementation** - run `workflows/post-impl-verify.md`
+- **Przed implementacją** - przeczytaj `workflows/dt-development.md`
+- **Wzorce frontendowe** - przeczytaj `skills/frontend-patterns.md`
+- **Rola frontendowa** - przeczytaj `roles/frontend-engineer.md`
+- **Po implementacji** - uruchom `workflows/post-impl-verify.md`

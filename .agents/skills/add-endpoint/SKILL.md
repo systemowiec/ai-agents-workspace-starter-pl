@@ -1,13 +1,13 @@
 ---
 name: add-endpoint
-description: Use when adding a new REST API endpoint - router, service, repository, schema, tests "Step-by-step guide to add a new REST API endpoint (FastAPI + SQLAlchemy + Pydantic)"
+description: Użyj przy dodawaniu nowego endpointu REST API - router, serwis, repozytorium, schema, testy. "Przewodnik krok po kroku dodawania nowego endpointu REST API (FastAPI + SQLAlchemy + Pydantic)"
 ---
 
-# Skill: Add REST Endpoint
+# Skill: Dodawanie endpointu REST
 
-Full procedure for adding a new REST endpoint. Hexagonal Architecture (domain -> application -> adapters -> interface).
+Pełna procedura dodawania nowego endpointu REST. Hexagonal Architecture (domain -> application -> adapters -> interface).
 
-## 1. Domain Entity (`backend/app/domain/entities.py`)
+## 1. Encja domenowa (`backend/app/domain/entities.py`)
 
 ```python
 from dataclasses import dataclass
@@ -21,7 +21,7 @@ class MyEntity:
     created_at: datetime | None = None
 ```
 
-## 2. Domain Port (`backend/app/domain/ports.py`)
+## 2. Port domenowy (`backend/app/domain/ports.py`)
 
 ```python
 from abc import ABC, abstractmethod
@@ -38,7 +38,7 @@ class MyEntityRepository(ABC):
     async def list_active(self) -> list[MyEntity]: ...
 ```
 
-## 3. Application Service (`backend/app/application/my_entity_service.py`)
+## 3. Serwis aplikacyjny (`backend/app/application/my_entity_service.py`)
 
 ```python
 from app.domain.ports import MyEntityRepository
@@ -61,7 +61,7 @@ class MyEntityService:
         return MyEntityResponse.model_validate(entity)
 ```
 
-## 4. Pydantic Schemas (`backend/app/schemas/my_entity.py`)
+## 4. Schemy Pydantic (`backend/app/schemas/my_entity.py`)
 
 ```python
 from pydantic import BaseModel
@@ -79,10 +79,10 @@ class MyEntityResponse(BaseModel):
     model_config = {"from_attributes": True}
 ```
 
-## 5. SQLAlchemy Adapter (`backend/app/infrastructure/adapters/db/`)
+## 5. Adapter SQLAlchemy (`backend/app/infrastructure/adapters/db/`)
 
 ```python
-# models - ORM model
+# models - model ORM
 class MyEntityModel(Base):
     __tablename__ = "my_entities"
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -90,7 +90,7 @@ class MyEntityModel(Base):
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime, server_default="CURRENT_TIMESTAMP")
 
-# repository - adapter implementing the port
+# repository - adapter implementujący port
 class SQLAlchemyMyEntityRepository(MyEntityRepository):
     def __init__(self, session: AsyncSession):
         self._session = session
@@ -100,7 +100,7 @@ class SQLAlchemyMyEntityRepository(MyEntityRepository):
         return result.to_entity() if result else None
 ```
 
-## 6. FastAPI Router (`backend/app/interfaces/api/my_entities.py`)
+## 6. Router FastAPI (`backend/app/interfaces/api/my_entities.py`)
 
 ```python
 from fastapi import APIRouter, Depends, status
@@ -118,14 +118,14 @@ async def create_entity(
     return await service.create(payload)
 ```
 
-## 7. Alembic Migration
+## 7. Migracja Alembic
 
 ```bash
 make db-migrate msg="add my_entities table"
 make db-upgrade
 ```
 
-## 8. Tests
+## 8. Testy
 
 ```bash
 make test
@@ -133,9 +133,9 @@ make test
 
 ---
 
-## See also (MANDATORY)
+## Zobacz też (OBOWIĄZKOWE)
 
-- **Before implementation** - read `workflows/dt-development.md`
-- **Migrations** - if new model, read `skills/database-migration.md`
-- **Tests** - read `skills/write-python-tests.md`
-- **After implementation** - run `workflows/post-impl-verify.md`
+- **Przed implementacją** - przeczytaj `workflows/dt-development.md`
+- **Migracje** - jeśli dodajesz nowy model, przeczytaj `skills/database-migration.md`
+- **Testy** - przeczytaj `skills/write-python-tests.md`
+- **Po implementacji** - uruchom `workflows/post-impl-verify.md`

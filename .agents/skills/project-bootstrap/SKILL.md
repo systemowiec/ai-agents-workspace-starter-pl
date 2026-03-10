@@ -1,26 +1,26 @@
 ---
 name: project-bootstrap
-description: Use when starting a new project from the starter kit - fills context, adapts roles, creates initial DT
+description: Użyj przy rozpoczynaniu nowego projektu na bazie startera - uzupełnia kontekst, dostosowuje role i tworzy początkowy DT
 ---
 
-# Project Bootstrap - Inicjalizacja projektu
+# Bootstrap projektu - inicjalizacja projektu
 
-## Overview
+## Przegląd
 
 Jednorazowy skill uruchamiany na początku projektu (po `make setup`).
 Wypełnia kontekst projektu, dostosowuje role agentów, tworzy pierwszy DT.
 
-## When to Use
+## Kiedy używać
 
 - Nowy projekt oparty na tym starter kicie
-- Kiedy user uruchomi `/project-init`
+- Kiedy użytkownik uruchomi `/project-init`
 - Kiedy `.agents/context/project-overview.md` zawiera `[TODO]`
 
-**When NOT to use:**
+**Kiedy NIE używać:**
 - Projekt już zainicjalizowany (brak `[TODO]` w context)
 - Zmiana istniejącego projektu
 
-## Process
+## Proces
 
 ### 1. Zbierz informacje od użytkownika
 
@@ -81,8 +81,8 @@ Sprawdź:
 - [ ] DT-001 istnieje
 - [ ] `make setup` można uruchomić
 
-## See also
+## Zobacz też
 
 - Workflow: `.agents/workflows/project-init.md`
 - Context: `.agents/context/README.md`
-- Skills: `.agents/skills/README.md`
+- Skille: `.agents/skills/README.md`

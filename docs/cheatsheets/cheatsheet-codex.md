@@ -1,4 +1,4 @@
-# OpenAI Codex CLI - Cheatsheet 2026
+# OpenAI Codex CLI - ściąga 2026
 
 > Źródła: oficjalna dokumentacja OpenAI (developers.openai.com/codex),
 > Shipyard cheatsheet, GitHub openai/codex.
@@ -237,7 +237,7 @@ codex exec --full-auto "Zaktualizuj CHANGELOG i uruchom testy"
 
 ---
 
-## Best practices
+## Dobre praktyki
 
 - AGENTS.md to jedyny plik kontekstowy - trzymaj go zwięzłym i konkretnym
 - Read-only mode (`-s read-only`) do audytów - bezpieczne przeglądanie kodu
@@ -255,9 +255,9 @@ W naszym starterze Codex CLI używa:
 
 | Element | Lokalizacja |
 |---|---|
-| Entry point | `AGENTS.md` (root) |
+| Punkt wejścia | `AGENTS.md` (root) |
 | Konfiguracja | `.codex/config.toml` |
-| Skills | Ręcznie - wskaż `@.agents/skills/nazwa/SKILL.md` |
-| Roles | Ręcznie - wskaż `@.agents/roles/nazwa.md` |
-| Workflows | Ręcznie - wskaż `@.agents/workflows/nazwa.md` |
+| Skille | Ręcznie - wskaż `@.agents/skills/nazwa/SKILL.md` |
+| Role | Ręcznie - wskaż `@.agents/roles/nazwa.md` |
+| Workflowy | Ręcznie - wskaż `@.agents/workflows/nazwa.md` |
 | MCP | `~/.codex/config.toml` sekcja `[mcp_servers]` |

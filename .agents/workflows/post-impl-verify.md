@@ -1,114 +1,140 @@
 ---
-description: Mandatory verification after every code change - smoke tests, unit tests, container logs. Run BEFORE telling user "done".
+description: Obowiązkowa weryfikacja po każdej zmianie w kodzie - smoke testy, testy jednostkowe, logi kontenerów. Uruchom PRZED poinformowaniem użytkownika, że praca jest zakończona.
 ---
 
-# Post-Implementation Verification
+# Weryfikacja po implementacji
 
-> **MANDATORY after EVERY code change - backend, frontend, config, Docker, routing, infrastructure.**
-> Agent CANNOT report "done" without completing ALL steps below.
-> If any step fails - fix and repeat from start.
-
----
-
-## When to Run
-
-**ALWAYS** - after completing implementation of every feature, bugfix, refactor, config change.
-Applies to both backend and frontend changes.
+> **OBOWIĄZKOWA po KAŻDEJ zmianie - backend, frontend, config, Docker, routing, infrastruktura.**
+> Agent NIE może zgłosić, że praca jest zakończona, bez wykonania WSZYSTKICH kroków poniżej.
+> Jeśli którykolwiek krok nie powiedzie się - napraw problem i powtórz procedurę od początku.
 
 ---
 
-## Step 1: Identify Scope
+## Kiedy uruchamiać
 
-| Change in...                    | Services to verify        |
+**ZAWSZE** - po zakończeniu implementacji każdego feature'a, bugfixa, refaktoru lub zmiany konfiguracyjnej.
+Dotyczy zarówno zmian backendowych, jak i frontendowych.
+
+---
+
+## Krok 1: Określ zakres
+
+| Zmiana w...                     | Serwisy do weryfikacji    |
 | ------------------------------- | ------------------------- |
-| `backend/`                      | backend container         |
-| `frontend/`                     | frontend container        |
-| `infra/`                        | ALL containers            |
-| `docker-compose*.yml`           | ALL containers            |
-| migrations                      | backend container (DB)    |
+| `backend/`                      | kontener backendu         |
+| `frontend/`                     | kontener frontendu        |
+| `infra/`                        | WSZYSTKIE kontenery       |
+| `docker-compose*.yml`           | WSZYSTKIE kontenery       |
+| migracjach                      | kontener backendu (DB)    |
 
 ---
 
-## Step 2: Rebuild Changed Service
+## Krok 2: Przebuduj zmieniony serwis
 
 ```bash
 make build
 make up
 ```
 
-Wait 5-10 seconds for startup, then proceed to step 3.
+Odczekaj 5-10 sekund na start usług, a następnie przejdź do kroku 3.
 
 ---
 
-## Step 3: Container Health Check
+## Krok 3: Sprawdzenie zdrowia kontenerów
 
 ```bash
 make status
 ```
 
-**REQUIRED:** All services `Up (healthy)` or `Up`. None `Exited`.
-If anything is `Exited` - read logs (Step 4), fix, return to Step 2.
+**WYMAGANE:** Wszystkie serwisy mają status `Up (healthy)` albo `Up`. Żaden nie może mieć statusu `Exited`.
+Jeśli którykolwiek ma status `Exited` - przeczytaj logi (krok 4), napraw problem i wróć do kroku 2.
 
 ---
 
-## Step 4: Log Check (no ERROR/EXCEPTION)
+## Krok 4: Sprawdzenie logów (bez ERROR/EXCEPTION)
 
 ```bash
 make logs
 ```
 
-**LOOK FOR:** `ERROR`, `Exception`, `Traceback`, `Fatal`, `CRITICAL`.
-If anything found - fix and return to Step 2.
+**SZUKAJ:** `ERROR`, `Exception`, `Traceback`, `Fatal`, `CRITICAL`.
+Jeśli coś znajdziesz - napraw problem i wróć do kroku 2.
 
 ---
 
-## Step 5: Smoke Test - Key Endpoints
+## Krok 4b: Celowana weryfikacja logów kontenerów (OBOWIĄZKOWA dla backendu)
+
+> **Po KAZDEJ zmianie backendowej agent MUSI sprawdzic logi KAZDEGO zmienionego kontenera indywidualnie.**
+> `make logs` moze nie wychwycic wszystkiego - sprawdz konkretne serwisy.
 
 ```bash
-# Backend health check
+# Sprawdz logi backendu (ostatnie 50 linii):
+docker compose -f infra/docker-compose.yml logs --tail=50 backend
+
+# Sprawdz logi database-gateway (jesli zmieniony):
+docker compose -f infra/docker-compose.yml logs --tail=50 database-gateway
+
+# Sprawdz logi workera (jesli zmieniony):
+docker compose -f infra/docker-compose.yml logs --tail=50 huey
+```
+
+**CO WERYFIKOWAC:**
+- Czy kontener uruchomil sie poprawnie (brak ImportError, ModuleNotFoundError)
+- Czy nie ma bledow przy starcie aplikacji (FastAPI startup, Uvicorn)
+- Czy polaczenie z baza danych jest aktywne (brak ConnectionRefusedError)
+- Czy nie ma nowych WARNING/ERROR po ostatniej zmianie
+
+**ABSOLUTE RULE:** Agent NIE moze powiedziec "zrobione" bez przeczytania logow zmienionego kontenera.
+
+---
+
+## Krok 5: Smoke test kluczowych endpointów
+
+```bash
+# Health check backendu
 docker compose -f infra/docker-compose.yml exec backend curl -sf http://localhost:8000/health | head -c 200
 ```
 
 ---
 
-## Step 6: Run Tests
+## Krok 6: Uruchom testy
 
 ### Backend:
 ```bash
 make test
 ```
 
-### Frontend (if changed):
+### Frontend (jeśli był zmieniany):
 ```bash
 make lint
 ```
 
-### Migration check (if model changed):
+### Weryfikacja migracji (jeśli zmienił się model):
 ```bash
 make db-upgrade
 ```
 
-**REQUIRED:** No test FAIL. If fail -> fix and repeat.
+**WYMAGANE:** Żaden test nie może zakończyć się wynikiem FAIL. Jeśli test nie przejdzie -> napraw problem i powtórz procedurę.
 
 ---
 
-## Step 7: Verification Summary
+## Krok 7: Podsumowanie weryfikacji
 
-Before telling user "done", confirm:
+Zanim poinformujesz użytkownika, że praca jest zakończona, potwierdź:
 
-| Question                                    | Required Answer |
-| ------------------------------------------- | --------------- |
-| Are containers running? (`make status`)     | All `Up`        |
-| Are logs clean? (no ERROR/Fatal)            | Yes             |
-| Do smoke tests pass?                        | Yes             |
-| Do unit tests pass?                         | Yes (or N/A)    |
-| Does TypeScript compile? (if frontend)      | Yes (or N/A)    |
+| Pytanie                                     | Wymagana odpowiedź |
+| ------------------------------------------- | ------------------ |
+| Czy kontenery działają? (`make status`)     | Wszystkie `Up`     |
+| Czy logi są czyste? (bez ERROR/Fatal)       | Tak                |
+| Czy smoke testy przechodzą?                 | Tak                |
+| Czy testy jednostkowe przechodzą?           | Tak (lub N/A)      |
+| Czy TypeScript się kompiluje? (dla frontendu) | Tak (lub N/A)    |
 
-**If ANY "No" -> DO NOT report done. Fix and repeat cycle.**
+**Jeśli na którekolwiek pytanie odpowiadasz "Nie" -> NIE zgłaszaj zakończenia pracy. Napraw problem i powtórz cały cykl.**
 
 ---
 
-## ABSOLUTE RULE
+## Zasada absolutna
 
-> **Agent NEVER tells user "done", "implemented", "works" without completing this workflow.**
-> This is equivalent to "shipping to production without tests" - unacceptable.
+> **Agent NIGDY nie mówi użytkownikowi "zrobione", "zaimplementowane" ani "działa" bez przejścia całego tego workflowu.**
+> To odpowiednik "wdrażania na produkcję bez testów" - niedopuszczalne.

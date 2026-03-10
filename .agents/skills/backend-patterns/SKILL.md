@@ -4,13 +4,13 @@ description: >
   Wzorce i szablony dla backend-dev. Czytaj gdy implementujesz nowy kod.
 ---
 
-# Skill: Backend Patterns
+# Skill: Wzorce backendowe
 
 > Wzorce i szablony dla backend-dev. Czytaj gdy implementujesz nowy kod.
 
 ---
 
-## FastAPI Router Template
+## Szablon routera FastAPI
 
 ```python
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -59,7 +59,7 @@ class SQLAlchemyResourceRepository(ResourceRepositoryPort):
         return row.to_domain() if row else None
 ```
 
-## Service (Use Case) Template
+## Szablon serwisu (use case)
 
 ```python
 from app.domain.ports import ResourceRepositoryPort
@@ -82,7 +82,7 @@ class ResourceService:
         return ResourceResponse.model_validate(resource)
 ```
 
-## Huey Task Template
+## Szablon taska Huey
 
 ```python
 from app.core.huey_config import huey
@@ -102,7 +102,7 @@ def process_heavy_task(resource_id: int) -> dict:
         raise
 ```
 
-## Exception Hierarchy
+## Hierarchia wyjątków
 
 ```python
 class AppError(Exception):

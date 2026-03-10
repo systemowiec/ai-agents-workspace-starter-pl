@@ -1,30 +1,30 @@
 ---
-description: Code review i walkthrough implementacji
+description: Przegląd kodu i walkthrough implementacji
 ---
 
-# Code Review
+# Przegląd kodu
 
-Procedura review kodu po implementacji - weryfikacja jakości, zgodności z architekturą i standardami.
+Procedura przeglądu kodu po implementacji - weryfikacja jakości, zgodności z architekturą i standardami.
 
-## 1. Przed review
+## 1. Przed przeglądem
 
 - Przeczytaj DT/zadanie i acceptance criteria
 - Zidentyfikuj zmodyfikowane pliki
 - Sprawdź branch i commity
 
-## 2. Checklist jakości
+## 2. Lista kontrolna jakości
 
 ### Architektura
 - [ ] Zgodność z architekturą projektu (domain -> application -> adapters -> interface)?
 - [ ] Brak circular dependencies?
-- [ ] Backward compatibility zachowana?
-- [ ] Breaking changes udokumentowane?
+- [ ] Czy zachowano backward compatibility?
+- [ ] Czy breaking changes zostały udokumentowane?
 
 ### Kod
 - [ ] TDD - testy istnieją i pokrywają kluczową logikę?
 - [ ] Klasy granularne (<200 linii, Single Responsibility)?
 - [ ] Interfejsy/Protokoły dla kluczowych kontraktów?
-- [ ] Dependency Injection (brak hardcoded deps)?
+- [ ] Dependency Injection (brak hardcoded zależności)?
 - [ ] Brak `any`, `object`, magic numbers?
 - [ ] Nazwy semantyczne i w konwencji projektu?
 - [ ] Obsługa błędów spójna z resztą projektu?
@@ -33,11 +33,11 @@ Procedura review kodu po implementacji - weryfikacja jakości, zgodności z arch
 ### Infrastruktura
 - [ ] Migracje prawidłowe (nie ręczne SQL)?
 - [ ] Docker-only execution (brak lokalnych komend)?
-- [ ] Zmienne env nie hardcoded?
+- [ ] Zmienne env nie są hardcoded?
 
 ### Dokumentacja
 - [ ] Raport implementacji w `docs/agent-reports/`?
-- [ ] Conventional Commit messages?
+- [ ] Czy commit messages są zgodne z Conventional Commits?
 
 ## 3. Weryfikacja działania
 
@@ -53,7 +53,7 @@ make logs
 
 ## 4. Walkthrough
 
-Po review stwórz dokument walkthrough:
+Po przeglądzie utwórz dokument walkthrough:
 
 ```markdown
 # Walkthrough: [Nazwa zadania]
@@ -72,7 +72,7 @@ Po review stwórz dokument walkthrough:
 | `path/file.py` | Nowy       | Opis |
 
 ## Decyzje projektowe
-- Dlaczego wybrano podejście X over Y
+- Dlaczego wybrano podejście X zamiast Y
 
 ## Jak przetestować
 ```bash
@@ -80,7 +80,7 @@ make test
 ```
 
 ## Potencjalne ulepszenia
-- Future improvement 1
+- Usprawnienie 1 w przyszłości
 ```
 
 ## 5. Werdykt

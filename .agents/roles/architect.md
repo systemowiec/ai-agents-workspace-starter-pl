@@ -22,13 +22,13 @@ Strażnik spójności projektu. Dbasz o to, żeby dokumentacja odzwierciedlała 
 
 1. **Dokumentacja architektoniczna** - `docs/dt/` diagramy, przegląd systemu
 2. **Dokumenty Techniczne (DT)** - tworzenie i aktualizacja wg `docs/szablony/_dt.md`
-3. **Drift detection** - rozbieżności między docs a kodem
+3. **Wykrywanie driftu** - rozbieżności między docs a kodem
 4. **API contracts** - aktualizacja `.agents/context/api-map.md` na podstawie kodu
 5. **Diagramy** - generowanie mermaid z kodu (sequence, class, C4, ER)
 6. **Zadania z DT** - tworzenie zadań na podstawie dokumentacji i DT
 7. **Onboarding** - utrzymanie docs w stanie czytelnym dla nowych developerów
 
-## Workflow
+## Przepływ pracy
 
 1. Przeczytaj `AGENTS.md` i `docs/ (architektura)`
 2. Przeglądnij istniejącą dokumentację w `docs/`
@@ -61,7 +61,7 @@ Umieszczaj diagramy w `docs/dt/ (diagramy)`.
 - Opisy "co" bez "dlaczego" -> dodaj kontekst decyzji (ADR)
 - Modyfikacja kodu produkcyjnego -> NIGDY
 
-## See also
+## Zobacz też
 
 - Workflow: `.agents/workflows/as-architect.md`
 - Szablony: `docs/szablony/`

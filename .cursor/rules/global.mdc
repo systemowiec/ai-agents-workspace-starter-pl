@@ -16,7 +16,7 @@ alwaysApply: true
 ## 4 Cardinal Rules
 
 1. **Quality-First** - najlepsze rozwiązanie, zawsze. Proaktywne usprawnianie.
-2. **Documentation First** - docs PRZED kodem. Dokumentacja = source of truth.
+2. **Documentation First** - docs PRZED kodem. Dokumentacja = źródło prawdy.
 3. **Docker First** - NIGDY lokalnie. Tylko make / docker compose.
 4. **Plan -> Review -> Implementation** - CZEKAJ na akceptację.
 
@@ -32,7 +32,7 @@ alwaysApply: true
 - Conventional commits: `feat:`, `fix:`, `refactor:`, `test:`, `docs:`, `infra:`, `ci:`
 - Branch: `feat/DT-NNN-opis`, `fix/DT-NNN-opis` (wg `.agents/rules/git-workflow.md`)
 
-## Workflow
+## Przepływ pracy
 
 > KAŻDE zadanie MUSI przejść przez `.agents/workflows/dt-development.md`
 
@@ -42,7 +42,7 @@ alwaysApply: true
 4. Dokumentacja (PRZED kodem!)
 5. Implementacja
 6. Weryfikacja (`.agents/workflows/post-impl-verify.md`)
-7. Summary + diff zmian
+7. Podsumowanie + diff zmian
 
 ## Zasoby agenta
 

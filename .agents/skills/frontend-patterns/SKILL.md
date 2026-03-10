@@ -4,13 +4,13 @@ description: >
   Wzorce i szablony dla frontend-dev. Czytaj gdy implementujesz nowy kod.
 ---
 
-# Skill: Frontend Patterns
+# Skill: Wzorce frontendowe
 
 > Wzorce i szablony dla frontend-dev. Czytaj gdy implementujesz nowy kod.
 
 ---
 
-## Metric UI Wrapper
+## Wrapper Metric UI
 
 ```tsx
 // components/ui/Button.tsx
@@ -29,7 +29,7 @@ export function Button({ isLoading, children, disabled, ...props }: ButtonProps)
 }
 ```
 
-## API Client
+## Klient API
 
 ```tsx
 // services/api-client.ts
@@ -78,7 +78,7 @@ class ApiClient {
 export const apiClient = new ApiClient();
 ```
 
-## React Query Hook
+## Hook React Query
 
 ```tsx
 // features/resources/hooks/useResources.ts
@@ -105,7 +105,7 @@ export function useCreateResource() {
 }
 ```
 
-## Feature Component
+## Komponent feature'a
 
 ```tsx
 // features/resources/components/ResourceList.tsx
@@ -131,7 +131,7 @@ export function ResourceList() {
 }
 ```
 
-## Test Utils
+## Narzędzia testowe
 
 ```tsx
 // __tests__/test-utils.tsx

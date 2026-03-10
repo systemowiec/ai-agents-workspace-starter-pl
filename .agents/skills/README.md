@@ -1,4 +1,4 @@
-# Skills - Konwencja i format
+# Skille - konwencja i format
 
 ## Format skilli (Anthropic SKILL.md standard)
 
@@ -10,13 +10,13 @@ Każdy skill to **folder** z plikiem `SKILL.md` oraz opcjonalnymi zasobami.
 skills/
   skill-name/
     SKILL.md              # Główna instrukcja (wymagany)
-    scripts/              # Helper scripts (opcjonalny)
+    scripts/              # Skrypty pomocnicze (opcjonalny)
     examples/             # Przykładowy kod (opcjonalny)
     templates/            # Szablony (opcjonalny)
     resources/            # Dodatkowe pliki (opcjonalny)
 ```
 
-### Format SKILL.md
+### Format pliku SKILL.md
 
 ```markdown
 ---
@@ -24,21 +24,21 @@ name: skill-name
 description: Use when [triggering conditions and symptoms]
 ---
 
-# Skill Name
+# Nazwa skilla
 
-## Overview
+## Przegląd
 Co to jest? 1-2 zdania.
 
-## When to Use
+## Kiedy używać
 Kiedy używać, kiedy NIE używać.
 
-## Process / Pattern
+## Proces / wzorzec
 Główna instrukcja.
 
-## Common Mistakes
+## Typowe błędy
 Co może pójść nie tak.
 
-## See also
+## Zobacz też
 Linki do powiązanych zasobów.
 ```
 
@@ -50,7 +50,7 @@ Linki do powiązanych zasobów.
 
 ### CSO (Claude Search Optimization)
 
-Description w SKILL.md musi być zoptymalizowany pod discovery:
+Description w `SKILL.md` musi być zoptymalizowany pod discovery:
 - Zaczynaj od "Use when..."
 - Opisuj SYMPTOMY i SYTUACJE (nie proces)
 - Uwzględniaj synonimy i warianty
@@ -64,6 +64,6 @@ Description w SKILL.md musi być zoptymalizowany pod discovery:
 5. Zaproponuj dodanie użytkownikowi (NIGDY automatycznie)
 6. Zaktualizuj `AGENTS.md` sekcja 13 z nowym skillem
 
-## Template
+## Szablon
 
 Użyj `_template/SKILL.md` jako punkt wyjścia.

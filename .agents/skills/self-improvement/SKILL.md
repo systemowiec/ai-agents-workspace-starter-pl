@@ -1,26 +1,26 @@
 ---
 name: self-improvement
-description: Use when finishing a work session - proposes new gotchas, patterns, context updates, and skill improvements based on work done
+description: Użyj przy kończeniu sesji pracy - proponuje nowe gotchas, wzorce, aktualizacje kontekstu i usprawnienia skilli na podstawie wykonanej pracy
 ---
 
-# Self-Improvement - Progressive Learning
+# Samodoskonalenie - progressive learning
 
-## Overview
+## Przegląd
 
 Agent analizuje wykonaną pracę i proponuje usprawnienia konfiguracji projektu.
 NIGDY nie dodaje automatycznie - zawsze przedstawia propozycje do review.
 
-## When to Use
+## Kiedy używać
 
 - Po zakończeniu większej sesji pracy (nowy feature, refaktor)
-- Kiedy user uruchomi `/self-improvement`
+- Kiedy użytkownik uruchomi `/self-improvement`
 - Kiedy agent odkryje powtarzalny wzorzec lub pułapkę
 
-**When NOT to use:**
+**Kiedy NIE używać:**
 - W trakcie implementacji (skup się na zadaniu)
 - Dla trywialnych zmian (jeden plik, mała poprawka)
 
-## Process
+## Proces
 
 ### 1. Zbierz kontekst
 
@@ -59,7 +59,7 @@ Dla każdej propozycji podaj:
 - Czekaj na akceptację każdej z osobna
 - Po zatwierdzeniu - dodaj do odpowiednich plików (w tym samym commicie)
 
-## Gotcha Entry Template
+## Szablon wpisu gotcha
 
 ```markdown
 ### [krótki tytuł]
@@ -69,7 +69,7 @@ Dla każdej propozycji podaj:
 **Data**: [YYYY-MM-DD]
 ```
 
-## Pattern Proposal Template
+## Szablon propozycji wzorca
 
 ```markdown
 ### Propozycja nowego skilla: [nazwa]
@@ -80,7 +80,7 @@ Dla każdej propozycji podaj:
 **Proponowany skill**: [krótki opis]
 ```
 
-## See also
+## Zobacz też
 
 - Learnings: `.agents/learnings/README.md`
 - Skills: `.agents/skills/README.md`

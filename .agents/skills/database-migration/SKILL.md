@@ -1,71 +1,83 @@
 ---
 name: database-migration
-description: Use when creating or running database migrations - Alembic, SQLAlchemy, schema changes "Step-by-step guide to create and run database migrations (Alembic + SQLAlchemy)"
+description: Użyj przy tworzeniu lub uruchamianiu migracji bazy danych - Alembic, SQLAlchemy, zmiany schematu. "Przewodnik krok po kroku tworzenia i uruchamiania migracji bazy danych (Alembic + SQLAlchemy)"
 ---
 
-# Skill: Database Migration
+# Skill: Migracja bazy danych
 
-Database migration procedures using Alembic with SQLAlchemy async.
+Procedury migracji bazy danych z użyciem Alembic oraz asynchronicznego SQLAlchemy.
 
-## Creating a New Migration
+## Tworzenie nowej migracji
 
-### 1. Define or Update the Model
+### 1. Zdefiniuj lub zaktualizuj model
 
-Create or update SQLAlchemy model in `backend/app/infrastructure/adapters/db/models.py`.
-Ensure the model inherits from `Base` and has proper `__tablename__`.
+Utwórz lub zaktualizuj model SQLAlchemy w `backend/app/infrastructure/adapters/db/models.py`.
+Upewnij się, że model dziedziczy po `Base` i ma poprawne `__tablename__`.
 
-### 2. Generate Migration
+### 1b. Sprawdź konwencję nazewnictwa migracji
+
+Przed wygenerowaniem migracji agent MUSI sprawdzić istniejące pliki w `backend/alembic/versions/`.
+
+Zasady:
+- Jeśli projekt używa numeracji sekwencyjnej, np. `0001_...`, `0002_...`, agent MUSI kontynuować tę samą konwencję
+- Jeśli projekt używa innego ustalonego schematu nazw, agent MUSI go zachować 1:1
+- Agent NIE może wymyślać własnego formatu nazw plików migracji
+- Agent NIE może tworzyć losowych, ogólnych ani nieczytelnych nazw typu `update`, `fix`, `changes`, `test`, `misc`
+- Opis migracji ma być krótki, po angielsku, techniczny i jednoznaczny
+- Jeśli w repozytorium nie ma jeszcze żadnej migracji ani jawnie opisanej konwencji, agent ma najpierw zapytać użytkownika o oczekiwany format
+
+### 2. Wygeneruj migrację
 
 ```bash
-# Auto-generate from model changes
+# Wygeneruj automatycznie na podstawie zmian modelu
 make db-migrate msg="add users table"
 
-# Equivalent Docker command:
+# Równoważna komenda Docker:
 # docker compose -f infra/docker-compose.yml exec backend alembic revision --autogenerate -m "add users table"
 ```
 
-### 3. Review Migration
+### 3. Zweryfikuj migrację
 
-Check the generated file in `backend/alembic/versions/`:
-- Are all columns correct?
-- Are indexes and constraints included?
-- Does the migration handle `upgrade()` and `downgrade()` properly?
-- Is MariaDB dialect compatible? (no PostgreSQL-specific syntax)
+Sprawdź wygenerowany plik w `backend/alembic/versions/`:
+- Czy wszystkie kolumny są poprawne?
+- Czy indeksy i constraints zostały uwzględnione?
+- Czy migracja poprawnie obsługuje `upgrade()` i `downgrade()`?
+- Czy jest zgodna z dialektem MariaDB? (bez składni specyficznej dla PostgreSQL)
 
-### 4. Apply Migration
+### 4. Zastosuj migrację
 
 ```bash
-# Apply all pending migrations
+# Zastosuj wszystkie oczekujące migracje
 make db-upgrade
 
-# Equivalent: alembic upgrade head
+# Odpowiednik: alembic upgrade head
 ```
 
-### 5. Verify
+### 5. Zweryfikuj
 
 ```bash
-# Check current migration status
+# Sprawdź aktualny stan migracji
 make db-shell
-# Then: SHOW TABLES; DESCRIBE my_table;
+# Następnie: SHOW TABLES; DESCRIBE my_table;
 ```
 
 ## Rollback
 
 ```bash
-# Rollback last migration
+# Wycofaj ostatnią migrację
 make db-downgrade
 
-# Equivalent: alembic downgrade -1
+# Odpowiednik: alembic downgrade -1
 ```
 
-## Data Migrations
+## Migracje danych
 
-For seed data or data transformations:
+Dla seed data albo transformacji danych:
 
 ```python
 # alembic/versions/xxx_seed_default_settings.py
 from alembic import op
-import sqlalchemy as są
+import sqlalchemy as sa
 
 def upgrade():
     op.execute(
@@ -76,19 +88,21 @@ def downgrade():
     op.execute("DELETE FROM settings WHERE key = 'app_name'")
 ```
 
-## Rules
+## Zasady
 
-- NEVER run alembic locally - ALWAYS through Docker (`make db-migrate`, `make db-upgrade`)
-- ALWAYS review auto-generated migrations before applying
-- ALWAYS include `downgrade()` function (rollback support)
-- One migration per logical change
-- Test rollback works before committing
-- Use raw SQL for data migrations, Alembic ops for schema migrations
+- NIGDY nie uruchamiaj alembica lokalnie - ZAWSZE przez Docker (`make db-migrate`, `make db-upgrade`)
+- ZAWSZE sprawdź istniejące nazewnictwo plików w `backend/alembic/versions/` przed utworzeniem nowej migracji
+- ZAWSZE weryfikuj auto-generowane migracje przed zastosowaniem
+- ZAWSZE uwzględniaj funkcję `downgrade()` (obsługa rollbacku)
+- Jedna migracja na jedną logiczną zmianę
+- Nazwa migracji musi być zgodna z konwencją projektu, a nie z domysłem agenta
+- Przed commitem sprawdź, czy rollback działa
+- Dla migracji danych używaj raw SQL, a dla migracji schematu operacji Alembica
 
 ---
 
-## See also (MANDATORY)
+## Zobacz też (OBOWIĄZKOWE)
 
-- **Before implementation** - read `workflows/dt-development.md`
-- **Model patterns** - read `skills/database-patterns.md`
-- **After migration** - run `workflows/post-impl-verify.md`
+- **Przed implementacją** - przeczytaj `workflows/dt-development.md`
+- **Wzorce modeli** - przeczytaj `skills/database-patterns.md`
+- **Po migracji** - uruchom `workflows/post-impl-verify.md`

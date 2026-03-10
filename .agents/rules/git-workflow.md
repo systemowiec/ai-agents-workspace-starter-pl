@@ -2,7 +2,7 @@
 trigger: always_on
 ---
 
-# Git Workflow - zasady pracy z repozytorium
+# Workflow Git - zasady pracy z repozytorium
 
 > **Ten plik opisuje jak agent pracuje z Git w tym projekcie.**
 > Dotyczy branchowania, commitowania i pushowania.
@@ -108,7 +108,7 @@ git commit -m "feat(api): add user entity and service"
 
 ---
 
-## See also (MANDATORY)
+## Zobacz też (OBOWIĄZKOWE)
 
-- **Workflow** - read `workflows/dt-development.md` (full flow)
-- **DT report** - read `workflows/dt-report.md` (reports)
+- **Workflow** - przeczytaj `workflows/dt-development.md` (pełny przepływ)
+- **Raport DT** - przeczytaj `workflows/dt-report.md` (raporty)

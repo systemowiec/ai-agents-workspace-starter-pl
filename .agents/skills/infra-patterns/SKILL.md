@@ -4,13 +4,13 @@ description: >
   Wzorce i szablony dla infra-dev. Czytaj gdy konfigurujesz Docker, CI/CD, serwery.
 ---
 
-# Skill: Infra Patterns
+# Skill: Wzorce infrastrukturalne
 
 > Wzorce i szablony dla infra-dev. Czytaj gdy konfigurujesz Docker, CI/CD, serwery.
 
 ---
 
-## docker-compose.yml Service Template
+## Szablon serwisu w `docker-compose.yml`
 
 ```yaml
 services:
@@ -43,7 +43,7 @@ services:
     cpus: 1.0
 ```
 
-## Dockerfile Multi-Stage Template
+## Szablon wieloetapowego Dockerfile
 
 ```dockerfile
 FROM python:3.12-slim AS builder
@@ -51,7 +51,7 @@ WORKDIR /build
 COPY infra/backend/requirements.txt ./
 RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
 
-# Development (hot reload, debug tools)
+# Development (hot reload, narzędzia debugowania)
 FROM python:3.12-slim AS development
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 WORKDIR /app
@@ -60,7 +60,7 @@ COPY backend/ ./
 EXPOSE 8000
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
 
-# Production (minimal, no dev tools)
+# Production (minimalny obraz, bez narzędzi developerskich)
 FROM python:3.12-slim AS production
 RUN groupadd -r appuser && useradd -r -g appuser appuser
 WORKDIR /app
@@ -73,7 +73,7 @@ EXPOSE 8000
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4"]
 ```
 
-## Makefile Target Template
+## Szablon targetu Makefile
 
 ```makefile
 .PHONY: my-target
@@ -81,7 +81,7 @@ my-target: ## Opis targetu
 	$(COMPOSE) exec backend <komenda>
 ```
 
-## Requirements Policy
+## Polityka requirements
 
 Starter używa jednego `requirements.txt`. Gdy dochodzi CI/CD lub wiele środowisk:
 
@@ -92,7 +92,7 @@ Starter używa jednego `requirements.txt`. Gdy dochodzi CI/CD lub wiele środowi
 5. Dockerfile stages: `development` -> `dev.txt`, `production` -> `prod.txt`
 6. NIGDY nie instaluj narzędzi testowych na produkcji
 
-## .env Best Practices
+## Dobre praktyki `.env`
 
 ```bash
 # Unikalne porty per projekt (unikaj kolizji)
@@ -101,15 +101,15 @@ BACKEND_PORT=8050
 DB_PORT=3350
 REDIS_PORT=6350
 
-# Unikalne nazwy volume'ow i sieci (auto z PROJECT_NAME)
+# Unikalne nazwy volume'ów i sieci (automatycznie z PROJECT_NAME)
 # ${PROJECT_NAME}-mariadb-data, ${PROJECT_NAME}-network
 
-# Sekrety - NIGDY nie commituj .env, wygeneruj:
+# Sekrety - NIGDY nie commituj `.env`, wygeneruj:
 # openssl rand -hex 32
 SECRET_KEY=<wygenerowany>
 ```
 
-## Healthcheck Patterns
+## Wzorce healthchecków
 
 ```yaml
 # MariaDB
@@ -136,7 +136,7 @@ healthcheck:
   start_period: 10s
 ```
 
-## Microservice - Independent Service Template
+## Mikroserwis - szablon niezależnego serwisu
 
 Każdy mikroserwis ma własny Dockerfile, compose, requirements:
 

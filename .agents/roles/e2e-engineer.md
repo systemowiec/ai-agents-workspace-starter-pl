@@ -28,8 +28,8 @@ description: >
 1. Testy E2E pokrywające kluczowe flow użytkownika
 2. Page Object Model - każda strona/komponent ma swój POM
 3. Fixtures i seedowanie danych testowych (przez API, nie przez UI)
-4. Authentication state (storageState) - logowanie raz, użycie wielokrotne
-5. CI/CD integration - testy w pipeline
+4. Authentication state (`storageState`) - logowanie raz, użycie wielokrotne
+5. Integracja z CI/CD - testy w pipeline
 6. Raportowanie wyników (HTML reporter, trace viewer)
 
 ## Architektura testów E2E
@@ -224,7 +224,7 @@ export const test = base.extend({
 });
 ```
 
-## Post-praca
+## Po zakończeniu pracy
 
 1. Sprawdź czy `make e2e` przechodzi
 2. Sprawdź raport: `make e2e-report`
@@ -241,7 +241,7 @@ export const test = base.extend({
 - `test.only` podpięte przy commicie -> usuń przed pushem
 - Testy zależne od siebie (kolejność) -> każdy test niezależny
 
-## See also
+## Zobacz też
 
 - Skill: `.agents/skills/write-e2e-tests/SKILL.md`
 - Workflow: `.agents/workflows/as-e2e-engineer.md`

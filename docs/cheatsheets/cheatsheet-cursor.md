@@ -1,4 +1,4 @@
-# Cursor IDE - Cheatsheet 2026
+# Cursor IDE - ściąga 2026
 
 > Źródła: oficjalna dokumentacja Cursor, cursor.com/changelog, community guides.
 
@@ -189,14 +189,14 @@ Cmd+K           ->  Inline edit na konkretnym fragmencie
 
 ---
 
-## Best practices
+## Dobre praktyki
 
 - Reguły .mdc poniżej 500 linii, im krócej tym lepiej
 - Używaj globów do aktywacji kontekstowej (nie ładuj wszystkiego zawsze)
 - AGENTS.md dla reguł cross-tool, .cursor/rules/ dla Cursor-specific
 - Notepad (@Notepad) do tymczasowego kontekstu między sesjami
 - `/Generate Cursor Rules` jako punkt startowy - dopracuj ręcznie
-- W description pisz KIEDY aktywować, nie CO robi reguła
+- W `description` pisz KIEDY aktywować, nie CO robi reguła
 
 ---
 
@@ -206,8 +206,8 @@ W naszym starterze Cursor używa:
 
 | Element | Lokalizacja |
 |---|---|
-| Entry point | `.cursor/rules/global.mdc` (alwaysApply) + `AGENTS.md` |
-| Role (glob-based) | `.cursor/rules/role-backend-python.mdc`, `role-frontend.mdc` itd. |
+| Punkt wejścia | `.cursor/rules/global.mdc` (alwaysApply) + `AGENTS.md` |
+| Role (glob-based) | `.cursor/rules/role-backend.mdc`, `role-frontend.mdc` itd. |
 | Docs rules | `.cursor/rules/docs.mdc` (globs: docs/**) |
-| Skills | Ręcznie przez `@.agents/skills/nazwa/SKILL.md` |
+| Skille | Ręcznie przez `@.agents/skills/nazwa/SKILL.md` |
 | MCP | `.cursor/mcp.json` |

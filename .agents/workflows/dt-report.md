@@ -1,83 +1,83 @@
 ---
-description: Creating DTs and implementation reports
+description: Tworzenie DT oraz raportów implementacyjnych
 ---
 
-# DT Report Workflow
+# Workflow raportu DT
 
-> Procedure for creating DTs and writing implementation reports.
-
----
-
-## When to Use
-
-- After implementing a task (Phase 8 of `dt-development.md`)
-- When proposing a new DT for ad-hoc work
+> Procedura tworzenia DT oraz przygotowywania raportów implementacyjnych.
 
 ---
 
-## 1. DT Format (Markdown)
+## Kiedy używać
+
+- Po zaimplementowaniu zadania (faza 8 w `dt-development.md`)
+- Gdy proponujesz nowy DT dla pracy ad-hoc
+
+---
+
+## 1. Format DT (Markdown)
 
 ```markdown
-# DT-NNN: Title
+# DT-NNN: Tytuł
 
-## Goal
-Short description of the objective.
+## Cel
+Krótki opis celu.
 
-## Scope
-- [ ] Task 1
-- [ ] Task 2
+## Zakres
+- [ ] Zadanie 1
+- [ ] Zadanie 2
 
 ## Acceptance Criteria
-- Criterion 1
-- Criterion 2
+- Kryterium 1
+- Kryterium 2
 
-## Dependencies
-- DT-YYY (if any)
+## Zależności
+- DT-YYY (jeśli dotyczy)
 
-## Technical Notes
-Implementation details.
+## Notatki techniczne
+Szczegóły implementacyjne.
 ```
 
-## 2. Next DT Number
+## 2. Kolejny numer DT
 
-Scan existing DTs to determine the next number:
+Przeskanuj istniejące DT, aby ustalić kolejny numer:
 
 ```bash
 ls docs/dt/*/DT-*.md 2>/dev/null | sort -t- -k2 -n | tail -1
 ```
 
-## 3. Implementation Report
+## 3. Raport implementacji
 
-After completing a DT, create report in `docs/agent-reports/`:
+Po zakończeniu pracy nad DT utwórz raport w `docs/agent-reports/`:
 
 ```markdown
-# DT-NNN: Title - Implementation Report
+# DT-NNN: Tytuł - Raport implementacji
 
-## Summary
-What was implemented.
+## Podsumowanie
+Co zostało zaimplementowane.
 
-## Changes
-- `backend/app/domain/entities.py` - new entity
-- `backend/app/application/service.py` - business logic
-- `backend/app/tests/test_service.py` - unit tests
+## Zmiany
+- `backend/app/domain/entities.py` - nowa encja
+- `backend/app/application/service.py` - logika biznesowa
+- `backend/app/tests/test_service.py` - testy jednostkowe
 
-## Documentation Updated
-- API documentation updated
-- `docs/dt/` - updated diagram
+## Zaktualizowana dokumentacja
+- Zaktualizowano dokumentację API
+- `docs/dt/` - zaktualizowano diagram
 
-## Verification
-- [ ] Containers running
-- [ ] Tests passing
-- [ ] Logs clean
+## Weryfikacja
+- [ ] Kontenery działają
+- [ ] Testy przechodzą
+- [ ] Logi są czyste
 
-## Follow-ups
-- DT-YYY: Add related feature
+## Follow-upy
+- DT-YYY: dodanie powiązanego feature'a
 ```
 
 ---
 
-## Rules
+## Zasady
 
-- **NEVER** write time estimates or AI mentions in DTs
-- **NEVER** abbreviate or summarize reports
-- Reports in `docs/agent-reports/DT-NNN/` follow naming: `impl-{rola}-v{N}.md`
+- **NIGDY** nie wpisuj estymacji czasowych ani wzmianek o AI w DT
+- **NIGDY** nie skracaj ani nie upraszczaj raportów
+- Raporty w `docs/agent-reports/DT-NNN/` stosują nazewnictwo: `impl-{rola}-v{N}.md`

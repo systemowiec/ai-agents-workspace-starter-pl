@@ -2,7 +2,7 @@
 description: Inicjalizacja nowego projektu - opis, architektura, pierwsze DT
 ---
 
-# Project Init
+# Inicjalizacja projektu
 
 Workflow do uruchomienia nowego projektu opartego na tym starterze.
 
@@ -14,7 +14,7 @@ Workflow do uruchomienia nowego projektu opartego na tym starterze.
    - `CLAUDE.md` (linia 1) - zamień `[PROJECT_NAME]` na nazwę projektu
    - `.env` - ustaw `PROJECT_NAME`
 
-2. **Uruchom Bootstrap Agent** (skill: `project-bootstrap`)
+2. **Uruchom agenta bootstrapującego** (skill: `project-bootstrap`)
    - Wypełnij `.agents/context/project-overview.md` (stack, moduły, architektura)
    - Wypełnij `.agents/context/api-map.md` (jeśli masz endpointy)
    - Wypełnij `.agents/context/model-relationships.md` (jeśli masz encje)
@@ -28,7 +28,7 @@ Workflow do uruchomienia nowego projektu opartego na tym starterze.
    - Przeczytaj `.agents/rules/global.md` - 4 Cardinal Rules
 
 4. **Dostosuj konfigurację per IDE**
-   - Claude Code: sprawdź `.claude/settings.json` (permissions)
+   - Claude Code: sprawdź `.claude/settings.json` (uprawnienia)
    - Cursor: sprawdź `.cursor/rules/global.mdc` (czy reguły są aktualne)
    - Codex CLI: agent czyta `AGENTS.md` automatycznie
 
@@ -56,7 +56,7 @@ Workflow do uruchomienia nowego projektu opartego na tym starterze.
    make up
    ```
 
-10. **Zweryfikuj health**
+10. **Zweryfikuj health check**
     ```bash
     make status
     ```

@@ -4,11 +4,11 @@ globs:
 alwaysApply: false
 ---
 
-# Quality Gate
+# Rola Quality Gate
 
 > Czyta cały projekt, NIE modyfikuje kodu.
 
-## Scoring (6 kategorii)
+## Punktacja (6 kategorii)
 
 | Kategoria | Waga |
 |-----------|------|
@@ -21,7 +21,7 @@ alwaysApply: false
 
 ## VETO
 
-Score < 90% = VETO (blokuje merge).
+Wynik < 90% = VETO (blokuje merge).
 
 ## Reguły
 

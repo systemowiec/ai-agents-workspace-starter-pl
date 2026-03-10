@@ -1,4 +1,4 @@
-# Google Antigravity - Cheatsheet 2026
+# Google Antigravity - ściąga 2026
 
 > Źródła: Google Codelabs, Google Developers Blog, oficjalna dokumentacja Antigravity,
 > community guides (aifire.co, antigravity.codes).
@@ -25,11 +25,11 @@ Brak natywnego `/init` - konfigurację tworzysz ręcznie lub przez community too
 
 ## Dwa interfejsy
 
-### Editor View
-Znane środowisko typu VS Code - pliki, terminal, panel chatu agenta (Cmd+L).
+### Widok edytora
+Znane środowisko typu VS Code - pliki, terminal i panel czatu agenta (Cmd+L).
 
 ### Manager Surface (Mission Control)
-Dashboard do spawnowania, monitorowania i orkiestracji wielu agentów równolegle.
+Dashboard do uruchamiania, monitorowania i orkiestracji wielu agentów równolegle.
 Każde zadanie = osobna instancja agenta z artefaktami (plany, diffy, screenshoty).
 
 ---
@@ -57,7 +57,7 @@ plik kontekstowy projektu. `GEMINI.md` nadal działa, ale nie jest wymagany.
 
 System instructions - agent uwzględnia je ZAWSZE.
 
-| Scope | Lokalizacja |
+| Zakres | Lokalizacja |
 |---|---|
 | Globalny | `~/.gemini/GEMINI.md` lub Antigravity Settings > Rules > + Global |
 | Workspace | `AGENTS.md` (natywnie od v1.20.3), `.agents/rules/*.md`, lub Settings > Rules > + Workspace |
@@ -74,11 +74,11 @@ Przykład:
 - Nie używaj npm ani pip bezpośrednio
 ```
 
-### Workflows - saved prompts, on-demand
+### Workflows - zapisane prompty, on-demand
 
 Aktywowane przez `/nazwa` w chacie agenta. Analogia: zapisany prompt wielokrotnego użytku.
 
-| Scope | Lokalizacja |
+| Zakres | Lokalizacja |
 |---|---|
 | Globalny | `~/.gemini/antigravity/workflows/` |
 | Workspace | `.agents/workflows/*.md` |
@@ -100,7 +100,7 @@ description: Uruchom Quality Gate - audyt kodu
 Ładowane dynamicznie, tylko gdy agent uzna że pasują do zadania.
 Agent widzi nazwę i opis na starcie - pełna treść ładowana on-demand.
 
-| Scope | Lokalizacja |
+| Zakres | Lokalizacja |
 |---|---|
 | Globalny | `~/.gemini/antigravity/skills/<n>/SKILL.md` |
 | Workspace | `.agents/skills/<n>/SKILL.md` |
@@ -158,9 +158,9 @@ Antigravity ma też wbudowany MCP Store z gotowymi integracjami (Firebase, Figma
 
 ## Artefakty (Trust Layer)
 
-Agent generuje artefakty - namacalne deliverables do weryfikacji:
-- Task lists
-- Implementation plans
+Agent generuje artefakty - namacalne rezultaty do weryfikacji:
+- Listy zadań
+- Plany implementacji
 - Screenshoty
 - Nagrania przeglądarki (browser recordings)
 
@@ -170,7 +170,7 @@ Możesz zostawiać komentarze na artefaktach (jak w Google Docs) - agent je uwzg
 
 ## Bezpieczeństwo agenta
 
-### Terminal Command Policies
+### Zasady wykonywania komend w terminalu
 
 | Polityka | Opis |
 |---|---|
@@ -178,7 +178,7 @@ Możesz zostawiać komentarze na artefaktach (jak w Google Docs) - agent je uwzg
 | Agent Decides | Agent sam ocenia ryzyko |
 | Always Ask | Zawsze pytaj przed wykonaniem |
 
-### Allow/Deny Lists
+### Listy Allow/Deny
 
 Konfiguracja: Antigravity Settings > Advanced Settings > Terminal.
 
@@ -193,7 +193,7 @@ Deny: rm -rf, git push --force, pip install, npm install
 
 | Skrót | Działanie |
 |---|---|
-| `Cmd+L` | Toggle panel agenta (Editor) |
+| `Cmd+L` | Przełącz panel agenta (Editor) |
 | `Cmd+I` | Inline completion / komenda |
 | `Cmd+,` | Ustawienia |
 | `Cmd+Shift+P` | Command Palette |
@@ -228,10 +228,10 @@ Komentuj artefakty  ->  feedback bez restartowania agenta
 
 ---
 
-## Best practices
+## Dobre praktyki
 
 - Oddzielny folder per projekt - agent dostaje czysty, focused kontekst
-- Skills library - buduj raz, importuj do każdego projektu
+- Biblioteka skilli - zbuduj raz, importuj do każdego projektu
 - Plan Mode dla złożonych zmian - weryfikuj plan PRZED implementacją
 - Rules krótkie i konkretne - agent lepiej je realizuje
 - Artefakty jako trust layer - nie czytaj każdej linii kodu, weryfikuj plan
@@ -245,9 +245,9 @@ W naszym starterze Antigravity używa:
 
 | Element | Lokalizacja |
 |---|---|
-| Entry point | `AGENTS.md` (natywnie od v1.20.3) |
+| Punkt wejścia | `AGENTS.md` (natywnie od v1.20.3) |
 | Rules | `.agents/rules/*.md` (always-on) |
-| Skills | `.agents/skills/<n>/SKILL.md` (on-demand) |
+| Skille | `.agents/skills/<n>/SKILL.md` (on-demand) |
 | Workflows | `.agents/workflows/*.md` (slash commands) |
-| Roles | `.agents/roles/*.md` (referencja z workflows) |
+| Role | `.agents/roles/*.md` (referencja z workflows) |
 | MCP | `~/.gemini/antigravity/mcp_config.json` |

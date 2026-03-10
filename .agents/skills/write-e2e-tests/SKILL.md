@@ -1,27 +1,27 @@
 ---
 name: write-e2e-tests
-description: Use when writing or updating E2E tests in Playwright - POM, fixtures, assertions, Docker
+description: Użyj przy pisaniu lub aktualizacji testów E2E w Playwright - POM, fixtures, asercje, Docker
 ---
 
-# Write E2E Tests - Testy End-to-End w Playwright
+# Pisanie testów E2E - testy end-to-end w Playwright
 
-## Overview
+## Przegląd
 
 Procedura pisania testów E2E w Playwright z Page Object Model.
 Testy uruchamiane w kontenerze Docker, seedowanie danych przez API.
 
-## When to Use
+## Kiedy używać
 
 - Nowy feature wymaga pokrycia testami E2E
 - Istniejący test wymaga aktualizacji po zmianach w UI
 - Nowy flow użytkownika do zautomatyzowania
 
-**When NOT to use:**
+**Kiedy NIE używać:**
 - Testy jednostkowe backendu (użyj `write-python-tests`)
 - Testy komponentów React (użyj testing-library w `frontend/`)
 - Manualna eksploracja strony (użyj Playwright MCP Server)
 
-## Process
+## Proces
 
 ### 1. Zidentyfikuj flow do przetestowania
 
@@ -99,7 +99,7 @@ Odpal test 3 razy - musi przejść za kazdym razem:
 make e2e && make e2e && make e2e
 ```
 
-## Checklist nowego testu
+## Lista kontrolna nowego testu
 
 - [ ] Page Object utworzony dla każdej strony w flow
 - [ ] Selektory oparte na `data-testid`
@@ -109,7 +109,7 @@ make e2e && make e2e && make e2e
 - [ ] Test przechodzi 3x z rzędu
 - [ ] Raport HTML czytelny
 
-## See also
+## Zobacz też
 
 - Rola: `.agents/roles/e2e-engineer.md`
 - Workflow: `.agents/workflows/as-e2e-engineer.md`

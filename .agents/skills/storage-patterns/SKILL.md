@@ -4,9 +4,9 @@ description: >
   Wzorce zarządzania plikami i storage. Czytaj gdy pracujesz z uploadem, generowaniem plików, dokumentami.
 ---
 
-# Skill: Storage Patterns
+# Skill: Wzorce storage
 
-> Wzorce zarządzania plikami i storage. Czytaj gdy pracujesz z uploadem, generowaniem plików, dokumentami.
+> Wzorce zarządzania plikami i storage. Czytaj, gdy pracujesz z uploadem, generowaniem plików i dokumentami.
 
 ---
 

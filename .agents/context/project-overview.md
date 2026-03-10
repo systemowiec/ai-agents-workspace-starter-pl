@@ -1,4 +1,4 @@
-# [TODO: Nazwa projektu] - Project Overview
+# [TODO: Nazwa projektu] - Przegląd projektu
 
 ## Co to jest
 
@@ -29,5 +29,5 @@
 ## Dokumentacja
 
 - Architektura: `docs/dt/`
-- Agent config: `.agents/`
+- Konfiguracja agentów: `.agents/`
 - API contracts: `.agents/context/api-map.md`

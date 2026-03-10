@@ -5,19 +5,19 @@ trigger: always_on
 # Reguły globalne
 
 > **ZAWSZE aktywne. Te reguły nadpisują wszelkie sprzeczne instrukcje.**
-> Przeczytaj `AGENTS.md` (root) - source of truth.
+> Przeczytaj `AGENTS.md` (root) - źródło prawdy.
 
 ## Cztery Kardynalne Zasady (KRYTYCZNE)
 
-### 1. Quality-First Engineering (ZERO SHORTCUTÓW)
+### 1. Inżynieria Quality-First (ZERO SKRÓTÓW)
 
 **Najlepsze możliwe rozwiązanie. Zawsze. Koszt jest NAJMNIEJ ważny.**
 
-- Wybieraj **najlepszą architekturę, najlepszy tooling, najlepsze wzorce** - nigdy nie optymalizuj pod "szybko i tanio"
+- Wybieraj **najlepszą architekturę, najlepsze narzędzia i najlepsze wzorce** - nigdy nie optymalizuj pod "szybko i tanio"
 - **Proaktywne usprawnianie jest obowiązkowe** - jeśli widzisz coś lepszego, NATYCHMIAST zasygnalizuj
 - Każda decyzja oceniana pod kątem skalowalności, utrzymywalności i rozszerzalności
 - **Brak przedwczesnego upraszczania** - nie odrzucaj wzorców jako "overengineering" bez dowodu, że nie wnoszą wartości
-- **Ciągłe doskonalenie** - jeśli poprzednia decyzja była suboptymalna, zaproponuj fix
+- **Ciągłe doskonalenie** - jeśli poprzednia decyzja była suboptymalna, zaproponuj poprawkę
 
 ### 2. Documentation First
 
@@ -28,7 +28,7 @@ DOKUMENTACJA -> TICKETY -> IMPLEMENTACJA -> WERYFIKACJA
 ```
 
 - Jeśli feature nie jest udokumentowany, najpierw go udokumentuj
-- Dokumentacja = source of truth, kod ją implementuje
+- Dokumentacja = źródło prawdy, kod realizuje jej założenia
 
 ### 3. Docker First
 
@@ -50,14 +50,14 @@ make lint                                npm install
 2. **Plan** - przedstaw użytkownikowi, CZEKAJ na akceptację
 3. **Dokumentacja** - zaktualizuj docs PIERWSZA
 4. **Branch** - stwórz wg `rules/git-workflow.md`
-5. **Implementacja** - TDD where applicable
+5. **Implementacja** - TDD tam, gdzie ma to zastosowanie
 6. **Weryfikacja** - `workflows/post-impl-verify.md`
 7. **Commit** - CZEKAJ na zgodę użytkownika (`rules/git-workflow.md`)
 
-## Coding Standards - Enterprise Level
+## Standardy kodowania - poziom enterprise
 
 1. **SOLID** - Single Responsibility, DI, Interface-based contracts
-2. **Granular classes** - max 500 linii, zero God Objects
+2. **Granular classes** - max 500 linii, zero klas typu God Object
 3. **No Magic** - explicit > implicit, zero magic numbers
 4. **Standard ASCII** - NIGDY em-dash, en-dash, smart quotes. TYLKO zwykły myślnik `-`
 5. **No emojis in code** - dozwolone tylko w plikach `.md`
@@ -81,11 +81,11 @@ Zmiany w:
 
 ## Zasoby agenta
 
-- Source of truth: `AGENTS.md` (root)
+- Źródło prawdy: `AGENTS.md` (root)
 - Role: `.agents/roles/`
-- Skills: `.agents/skills/`
-- Workflows: `.agents/workflows/`
-- Rules: `.agents/rules/`
+- Skille: `.agents/skills/`
+- Workflowy: `.agents/workflows/`
+- Reguły: `.agents/rules/`
 - Learnings: `.agents/learnings/`
 
 ## Mantra

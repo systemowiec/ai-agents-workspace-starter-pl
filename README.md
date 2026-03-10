@@ -10,7 +10,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Lang: PL](https://img.shields.io/badge/lang-polski-red.svg)](#)
-[![Version](https://img.shields.io/badge/version-0.1.0-green.svg)](#)
+[![Version](https://img.shields.io/badge/version-0.1.2-green.svg)](#)
 
 <p>
 <img src="https://img.shields.io/badge/Claude_Code-✓-blueviolet?style=flat-square" alt="Claude Code">
@@ -35,7 +35,7 @@ Hexagonal Architecture z wydzielonymi warstwami. Role z ograniczeniami plików. 
 </td>
 <td width="33%" valign="top">
 
-### 🔄 Workflow
+### 🔄 Przepływ pracy
 Plan -> Review -> Implementacja. Dokumenty Techniczne z pełnym cyklem życia. Analyst -> Architect -> Engineer -> Quality Gate.
 
 </td>
@@ -51,7 +51,7 @@ Scoring w 6 kategoriach. VETO przy < 90%. Automatyczne raporty audytu. Bezkompro
 ---
 
 <p align="center">
-  🇵🇱 <strong>Wersja polska</strong>&nbsp;&nbsp;·&nbsp;&nbsp;🇬🇧 <em>English version (coming soon)</em>
+  🇵🇱 <strong>Wersja polska</strong>&nbsp;&nbsp;·&nbsp;&nbsp;🇬🇧 <a href="https://github.com/systemowiec/ai-agents-workspace-starter"><em>Wersja angielska</em></a>
 </p>
 
 ## Dlaczego wersja polska?
@@ -60,6 +60,7 @@ Scoring w 6 kategoriach. VETO przy < 90%. Automatyczne raporty audytu. Bezkompro
 Wszystkie instrukcje agentów, role, workflowy i dokumentacja są napisane
 w języku polskim z pełną diakrytyką.
 To jest świadoma decyzja architektoniczna, nie tłumaczenie wersji angielskiej.
+Równoległa wersja angielska jest utrzymywana jako osobne repozytorium i synchronizowana z tym repo po każdej zmianie merytorycznej.
 
 Polska morfologia (aspekt czasownika, przypadki, rodzaj gramatyczny)
 koduje informacje, których angielski nie posiada. W praktyce agenci AI
@@ -99,7 +100,7 @@ Zamiast budować konfiguracje dla każdego narzędzia od zera, dostajesz:
 
 ```bash
 # 1. Sklonuj repozytorium
-git clone https://github.com/systemowiec/ai-agents-workspace-starter.git mój-projekt
+git clone https://github.com/systemowiec/ai-agents-workspace-starter-pl.git mój-projekt
 cd mój-projekt
 
 # 2. Usuń historię git i zacznij od nowa
@@ -273,13 +274,13 @@ cp -r .agents/skills/_template .agents/skills/mój-nowy-skill
 3. **Docker First** - nigdy nie uruchamiaj Python/npm/pip lokalnie. Zawsze Docker/Make.
 4. **Plan -> Review -> Implementation** - zawsze w tej kolejności. Czekaj na akceptację.
 
-### Workflow agenta
+### Przepływ pracy agenta
 
 ```
 ANALIZA -> PLAN -> CZEKANIE NA AKCEPTACJĘ -> DOKUMENTACJA -> IMPLEMENTACJA -> WERYFIKACJA -> RAPORT
 ```
 
-### Quality Gate - Scoring
+### Quality Gate - punktacja
 
 | Kategoria | Waga |
 |-----------|------|

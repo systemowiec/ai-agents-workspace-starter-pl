@@ -1,13 +1,13 @@
 # Szablon: Raport audytu
 
-## Metadata
+## Metadane
 
 - **Data**: [YYYY-MM-DD]
 - **Audytor**: quality-gate
 - **Zakres**: [backend / frontend / infrastruktura]
 - **Wersja kodu**: [commit SHA]
 
-## Scoring
+## Punktacja
 
 | Kategoria | Waga | Ocena (0-100%) | Ważony wynik |
 |-----------|------|---------------|-------------|
@@ -29,27 +29,27 @@
 
 **Wynik**: [PASS / CONDITIONAL / FAIL] - [SUMA]%
 
-## Findings
+## Ustalenia
 
-### P1 - Critical (blokujące)
-
-| # | Plik | Linia | Problem | Sugestia |
-|---|------|-------|---------|----------|
-| 1 | [plik] | [linia] | [opis] | [sugestia] |
-
-### P2 - High (wymagane przed merge)
+### P1 - Krytyczne (blokujące)
 
 | # | Plik | Linia | Problem | Sugestia |
 |---|------|-------|---------|----------|
 | 1 | [plik] | [linia] | [opis] | [sugestia] |
 
-### P3 - Low (nice to have)
+### P2 - Wysokie (wymagane przed merge)
 
 | # | Plik | Linia | Problem | Sugestia |
 |---|------|-------|---------|----------|
 | 1 | [plik] | [linia] | [opis] | [sugestia] |
 
-## Routing
+### P3 - Niskie (nice to have)
+
+| # | Plik | Linia | Problem | Sugestia |
+|---|------|-------|---------|----------|
+| 1 | [plik] | [linia] | [opis] | [sugestia] |
+
+## Przypisanie
 
 | Odbiorca | Zakres |
 |----------|--------|
