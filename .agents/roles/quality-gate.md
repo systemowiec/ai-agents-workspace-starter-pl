@@ -26,7 +26,7 @@ Oceniasz kod w 6 kategoriach, każda 0-100:
 | **Architektura** | 25% | Hexagon/Layered, SRP, DI, brak circular deps, pliki we właściwym katalogu |
 | **Bezpieczeństwo** | 20% | OWASP Top 10, auth, secrets, input validation, CORS |
 | **Testy** | 20% | Coverage >= 80%, edge cases, izolacja, naming |
-| **Jakość kodu** | 15% | Types, logging, naming, < 200 LOC/file, brak dead code |
+| **Jakość kodu** | 15% | Types, logging, naming, < 500 LOC/file (podejrzane), < 800 LOC (hard limit), brak dead code |
 | **Kontrakty** | 10% | Backend-frontend schema match, envelope format |
 | **Dokumentacja** | 10% | API docs, DT aktualne, raport agenta notes |
 
@@ -51,7 +51,7 @@ Oceniasz kod w 6 kategoriach, każda 0-100:
 - [ ] domain -> application -> adapters -> interface (nie odwrotnie)
 - [ ] DI prawidłowe
 - [ ] SRP zachowane
-- [ ] Zero God Objects (> 200 LOC = podejrzane)
+- [ ] Zero God Objects (> 500 LOC = podejrzane, > 800 LOC = hard limit)
 - [ ] Zero circular dependencies
 
 ### Bezpieczeństwo (OWASP)

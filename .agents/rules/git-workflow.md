@@ -11,10 +11,16 @@ trigger: always_on
 
 ### Tworzenie brancha
 
-Każda większa zmiana wymaga osobnego brancha:
+Każda większa zmiana wymaga osobnego brancha.
 
+**Format z DT (preferowany):**
 ```
 {type}/{TICKET-ID}-short-description
+```
+
+**Format ad-hoc (bez DT):**
+```
+{type}/short-description
 ```
 
 Przykłady:
@@ -23,9 +29,18 @@ feat/DT-001-user-entity
 fix/DT-012-jwt-ttl-increase
 refactor/DT-031-hexagonal-structure
 docs/DT-040-architecture
+chore/update-dependencies
+test/add-missing-unit-tests
 ```
 
-Typy: `feat`, `fix`, `refactor`, `chore`, `docs`, `test`
+### Reguły nazewnictwa
+
+- **Typy**: `feat`, `fix`, `refactor`, `chore`, `docs`, `test`
+- **Tylko lowercase** - nigdy wielkie litery (poza ID: `DT-NNN`)
+- **Dozwolone znaki**: `[a-z0-9-/]` + uppercase w ID
+- **Separator**: `-` (myślnik) między słowami
+- **Język opisu**: angielski
+- **Zwięzłość**: 2-4 słowa opisu, max 50 znaków całej nazwy
 
 ### Kiedy branch jest wymagany
 
@@ -37,11 +52,13 @@ Typy: `feat`, `fix`, `refactor`, `chore`, `docs`, `test`
 
 ### Format wiadomości
 
-```
-{type}({scope}): krótki opis
+> **Język: angielski.** Dotyczy WSZYSTKICH operacji Git: commity, tagi, nazwy branchy, tytuły PR, opisy release.
 
-- zmiana 1
-- zmiana 2
+```
+{type}({scope}): short description in English
+
+- change 1
+- change 2
 ```
 
 Przykłady:
@@ -62,7 +79,9 @@ infra: add Redis healthcheck
 > Czekaj na jawną zgodę: "commituj", "ok możesz commitować", "zrób commita" itp.
 
 - Max 1 linia tytułu + opcjonalnie 3-5 bulletów
+- **Język commitów: WYŁĄCZNIE angielski.** Nigdy po polsku.
 - **NIGDY** nie wpisuj estymacji czasowych ani wzmianek o AI
+- **NIGDY** nie wspominaj nazw narzędzi AI (Cursor, Claude, Copilot, Antigravity, itp.) jako autorów zmian - ani w commitach, ani w kodzie, ani w raportach
 - **NIGDY** nie commituj: `.env`, `node_modules/`, `storage/`, kluczy SSH/secrets
 
 ## Push

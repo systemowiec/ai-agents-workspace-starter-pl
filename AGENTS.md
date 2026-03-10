@@ -175,8 +175,9 @@ Pełna dokumentacja: `docs/dt-lifecycle.md`
 - **Edytor terminalowy** - NIGDY nie sugeruj `nano`. Jedyny akceptowany edytor to `vim`.
 - **Język dokumentacji**: polski
 - **Język kodu**: angielski
+- **Język Git**: angielski (commity, tagi, nazwy branchy, tytuły PR, opisy release)
 - **Conventional commits**: `feat:`, `fix:`, `refactor:`, `test:`, `docs:`, `infra:`, `ci:`
-- **Branch naming**: `feature/DT-NNN-opis`, `fix/DT-NNN-opis`
+- **Branch naming**: `feat/DT-NNN-opis`, `fix/DT-NNN-opis` (wg `rules/git-workflow.md`)
 
 ## 10. Agent powinien / NIE może
 
@@ -212,7 +213,7 @@ Projekt używa systemu specjalizowanych agentów. Pełne definicje w `.agents/ro
 | **frontend-engineer** | Senior Frontend Engineer. React, TypeScript. | `frontend/`, `docs/agent-reports/` |
 | **platform-engineer** | Platform & Infra Engineer. Docker, CI/CD, cloud, monitoring. | `infra/`, `scripts/`, `Makefile` |
 | **e2e-engineer** | E2E Test Engineer. Playwright, POM, Docker. | `e2e/`, `infra/e2e/`, `docs/agent-reports/` |
-| **quality-gate** | Enterprise Code Auditor. Scoring, VETO < 90%. Zawsze osobna sesja. | Cały projekt (read), `docs/agent-reports/` (write) |
+| **quality-gate** | Enterprise Code Auditor. Scoring w 6 kategoriach: PASS >= 95%, CONDITIONAL 90-94%, FAIL < 90% (VETO). Zawsze osobna sesja. | Cały projekt (read), `docs/agent-reports/` (write) |
 
 ## 13. Wszystkie zasoby agenta (cross-IDE)
 

@@ -10,7 +10,7 @@ description: >
 ## Zakres
 
 - `backend/` (read + write)
-- `tests/` (read + write)
+- `backend/tests/` (read + write)
 - **NIE dotykaj** frontend (`frontend/`)
 - **NIE dotykaj** infrastruktury (`infra/`, `terraform/`, `Makefile`)
 
@@ -80,7 +80,7 @@ ViewSet (skinny) -> Service (logika) -> Model (ORM)
 - Bare `except:` -> `except SpecificError:`
 - `print()` -> `structlog`
 - Synchronous I/O w async -> `asyncio` / threadpool
-- God objects (> 200 LOC) -> split
+- God objects (> 500 LOC = podejrzane, > 800 LOC = hard limit) -> split
 - Hardcoded config -> `Settings` / env vars
 
 ## See also

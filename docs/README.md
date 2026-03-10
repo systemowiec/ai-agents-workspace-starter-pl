@@ -46,5 +46,6 @@ Materiały referencyjne w `cheatsheets/`:
 - Słowa kluczowe i poprawność językowa: `konwencje-językowe.md`
 - Język dokumentacji: **polski**
 - Język kodu: **angielski**
+- Język Git (commity, tagi, branchy, PR): **angielski**
 - Standardowe myślniki: tylko `-` (ASCII 45), nigdy em-dash/en-dash
 - Brak estymacji godzinowych w jakimkolwiek dokumencie

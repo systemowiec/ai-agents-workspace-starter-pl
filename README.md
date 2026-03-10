@@ -216,7 +216,7 @@ Nie musisz powtarzać kontekstu w każdym prompcie.
 ### Przełączanie między rolami
 
 ```
-/as-analyst              # Aktywuj Analista
+/as-analyst              # Aktywuj Analityka
 /as-backend-engineer     # Aktywuj Backend Engineera
 /as-frontend-engineer    # Aktywuj Frontend Engineera
 /as-architect            # Aktywuj Architekta

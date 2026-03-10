@@ -3,6 +3,17 @@
 Wszystkie istotne zmiany w projekcie są dokumentowane w tym pliku.
 Format oparty na [Keep a Changelog](https://keepachangelog.com/pl/1.0.0/).
 
+## [0.1.1] - 2026-03-09
+
+### Poprawiono
+
+- Ujednolicenie konwencji branch naming: `feat/` zamiast `feature/` we wszystkich plikach (AGENTS.md, global.mdc, CONTRIBUTING.md)
+- Rozszerzenie regul branchy w git-workflow.md: lowercase, dozwolone znaki, format ad-hoc (bez DT), limit dlugosci
+- Ujednolicenie progow LOC: 500 LOC (podejrzane) / 800 LOC (hard limit) we wszystkich plikach
+- Doprecyzowanie opisu Quality Gate w tabeli rol (PASS >= 95%, CONDITIONAL 90-94%, FAIL < 90%)
+- Poprawka sciezki `tests/` na `backend/tests/` w backend-engineer.md
+- Poprawka jezykowa: "Analista" na "Analityka" w README.md
+
 ## [0.1.0] - 2026-03-08
 
 ### Dodano

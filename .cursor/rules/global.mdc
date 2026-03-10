@@ -30,7 +30,7 @@ alwaysApply: true
 
 - NIGDY nie używaj typograficznych myślników (em-dash, en-dash). Tylko `-` (ASCII 45)
 - Conventional commits: `feat:`, `fix:`, `refactor:`, `test:`, `docs:`, `infra:`, `ci:`
-- Branch: `feature/DT-NNN-opis`, `fix/DT-NNN-opis`
+- Branch: `feat/DT-NNN-opis`, `fix/DT-NNN-opis` (wg `.agents/rules/git-workflow.md`)
 
 ## Workflow
 
